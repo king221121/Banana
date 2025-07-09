@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.0.5";
+        string currentVersion = "1.0.6";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -198,7 +198,9 @@ namespace Banana
                     (haste, "Haste.dll", "haste"),
                     (walksim, "WalkSimulator-NonUtilla.dll", "walksim"),
                     (unknown, "Unkown'sNameTagMod.dll", "unknowntags"),
-                    (flick, "unknown's DC Flick Mod.dll", "flick")
+                    (flick, "unknown's DC Flick Mod.dll", "flick"),
+                    (automod, "NoAutoMod.dll", "automod"),
+                    (bans, "DMServersAUPD.dll", "banservers"),
                 };
             }
         }

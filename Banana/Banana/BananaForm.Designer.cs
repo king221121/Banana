@@ -32,6 +32,12 @@
             control = new TabControl();
             cheats = new TabPage();
             panel2 = new Panel();
+            panel19 = new Panel();
+            panel20 = new Panel();
+            label26 = new Label();
+            checkBox5 = new CheckBox();
+            label27 = new Label();
+            automod = new CheckBox();
             panel17 = new Panel();
             panel18 = new Panel();
             label24 = new Label();
@@ -109,9 +115,14 @@
             discord = new Button();
             version = new Label();
             changelocation = new Button();
+            panel21 = new Panel();
+            label29 = new Label();
+            bans = new CheckBox();
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
+            panel19.SuspendLayout();
+            panel20.SuspendLayout();
             panel17.SuspendLayout();
             panel18.SuspendLayout();
             panel15.SuspendLayout();
@@ -130,6 +141,7 @@
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             credits.SuspendLayout();
+            panel21.SuspendLayout();
             SuspendLayout();
             // 
             // control
@@ -157,6 +169,8 @@
             // 
             panel2.AutoScroll = true;
             panel2.AutoScrollMargin = new Size(0, 100);
+            panel2.Controls.Add(panel21);
+            panel2.Controls.Add(panel19);
             panel2.Controls.Add(panel17);
             panel2.Controls.Add(panel15);
             panel2.Controls.Add(panel14);
@@ -178,6 +192,71 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(490, 231);
             panel2.TabIndex = 11;
+            // 
+            // panel19
+            // 
+            panel19.BackColor = Color.FromArgb(32, 32, 32);
+            panel19.Controls.Add(panel20);
+            panel19.Controls.Add(label27);
+            panel19.Controls.Add(automod);
+            panel19.Location = new Point(-3, 392);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(470, 23);
+            panel19.TabIndex = 19;
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.FromArgb(32, 32, 32);
+            panel20.Controls.Add(label26);
+            panel20.Controls.Add(checkBox5);
+            panel20.Location = new Point(3, 22);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(480, 23);
+            panel20.TabIndex = 15;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.BackColor = Color.Transparent;
+            label26.ForeColor = Color.White;
+            label26.Location = new Point(281, 4);
+            label26.Name = "label26";
+            label26.Size = new Size(128, 15);
+            label26.TabIndex = 8;
+            label26.Text = "ShibaGT (Original Kyle)";
+            // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.ForeColor = Color.White;
+            checkBox5.Location = new Point(3, 3);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new Size(127, 19);
+            checkBox5.TabIndex = 9;
+            checkBox5.Text = "WalkSim-NonUtilla";
+            checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.BackColor = Color.Transparent;
+            label27.ForeColor = Color.White;
+            label27.Location = new Point(281, 4);
+            label27.Name = "label27";
+            label27.Size = new Size(51, 15);
+            label27.TabIndex = 8;
+            label27.Text = "64Will64";
+            // 
+            // automod
+            // 
+            automod.AutoSize = true;
+            automod.ForeColor = Color.White;
+            automod.Location = new Point(3, 3);
+            automod.Name = "automod";
+            automod.Size = new Size(99, 19);
+            automod.TabIndex = 9;
+            automod.Text = "No Auto Mod";
+            automod.UseVisualStyleBackColor = true;
             // 
             // panel17
             // 
@@ -512,9 +591,9 @@
             unknown.ForeColor = Color.White;
             unknown.Location = new Point(3, 3);
             unknown.Name = "unknown";
-            unknown.Size = new Size(259, 19);
+            unknown.Size = new Size(253, 19);
             unknown.TabIndex = 9;
-            unknown.Text = "Unknowns Nametag Mod (F7 TO OPEN GUI)";
+            unknown.Text = "Unknowns Nametag Mod (L TO OPEN GUI)";
             unknown.UseVisualStyleBackColor = true;
             // 
             // panel8
@@ -1016,7 +1095,7 @@
             version.Name = "version";
             version.Size = new Size(117, 15);
             version.TabIndex = 10;
-            version.Text = "Banana Version: 1.0.5";
+            version.Text = "Banana Version: 1.0.6";
             // 
             // changelocation
             // 
@@ -1027,6 +1106,38 @@
             changelocation.Text = "..";
             changelocation.UseVisualStyleBackColor = true;
             changelocation.Click += changelocation_Click;
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.FromArgb(32, 32, 32);
+            panel21.Controls.Add(label29);
+            panel21.Controls.Add(bans);
+            panel21.Location = new Point(0, 263);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(470, 23);
+            panel21.TabIndex = 19;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.BackColor = Color.Transparent;
+            label29.ForeColor = Color.White;
+            label29.Location = new Point(281, 4);
+            label29.Name = "label29";
+            label29.Size = new Size(42, 15);
+            label29.TabIndex = 8;
+            label29.Text = "Ginger";
+            // 
+            // bans
+            // 
+            bans.AutoSize = true;
+            bans.ForeColor = Color.White;
+            bans.Location = new Point(3, 3);
+            bans.Name = "bans";
+            bans.Size = new Size(136, 19);
+            bans.TabIndex = 9;
+            bans.Text = "Ban/Modded Servers";
+            bans.UseVisualStyleBackColor = true;
             // 
             // Banana
             // 
@@ -1058,6 +1169,10 @@
             cheats.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel19.ResumeLayout(false);
+            panel19.PerformLayout();
+            panel20.ResumeLayout(false);
+            panel20.PerformLayout();
             panel17.ResumeLayout(false);
             panel17.PerformLayout();
             panel18.ResumeLayout(false);
@@ -1094,6 +1209,8 @@
             panel1.PerformLayout();
             credits.ResumeLayout(false);
             credits.PerformLayout();
+            panel21.ResumeLayout(false);
+            panel21.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1180,5 +1297,14 @@
         private Label sodiumv;
         private Label walkv;
         private Button changelocation;
+        private Panel panel19;
+        private Panel panel20;
+        private Label label26;
+        private CheckBox checkBox5;
+        private Label label27;
+        private CheckBox automod;
+        private Panel panel21;
+        private Label label29;
+        private CheckBox bans;
     }
 }
