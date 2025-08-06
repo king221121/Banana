@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.0.7";
+        string currentVersion = "1.0.8";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -117,9 +117,17 @@ namespace Banana
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            Directory.CreateDirectory(targetPath + "\\BepInEx\\plugins");
-            using (WebClient client = new WebClient())
-                File.WriteAllText(targetPath + "\\BepInEx\\config\\BepInEx.cfg", client.DownloadString($"{baseUrl}config.txt"));
+            try
+            {
+                Directory.CreateDirectory(targetPath + "\\BepInEx\\plugins");
+                Directory.CreateDirectory(targetPath + "\\BepInEx\\config");
+                using (WebClient client = new WebClient())
+                    File.WriteAllText(targetPath + "\\BepInEx\\config\\BepInEx.cfg", client.DownloadString($"{baseUrl}config.txt"));
+            }
+            catch ( Exception ex )
+            {
+                MessageBox.Show("An error occurred while creating the plugins directory or writing the config file: " + ex.Message);
+            }
         }
 
 
@@ -217,14 +225,19 @@ namespace Banana
 
         private async void download_Click(object sender, EventArgs e)
         {
-            string pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"), "BepInEx", "plugins\\");
+            string pluginsloc;
+            if (Directory.Exists(Path.Combine(gtaglocation, "BepInEx")))
+                pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"), "BepInEx", "plugins\\");
+            else
+                pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"));
+
             try
             {
-
                 if (bepinex.Checked)
                 {
                     bepinexshit();
                     status.Text = "bepinex";
+                    pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"), "BepInEx", "plugins\\");
                 }
 
                 if (ue.Checked)
