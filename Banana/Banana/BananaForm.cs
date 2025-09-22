@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.0.8";
+        string currentVersion = "1.0.9";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -192,7 +192,11 @@ namespace Banana
                        (forpreds, "iiDk-the-actual/ForeverPreds", "ForeverPreds.dll", "forever preds", predv),
                        (forhz, "iiDk-the-actual/ForeverHz", "ForeverHz.dll", "hz mod", hzv),
                        (cosm, "iiDk-the-actual/ForeverCosmetx", "ForeverCosmetx.dll", "cosmetx", cosmetxv),
-                       (media, "iiDk-the-actual/GorillaMedia", "GorillaMedia.dll", "media", mediav)
+                       (media, "iiDk-the-actual/GorillaMedia", "GorillaMedia.dll", "media", mediav),
+                       (pokruk, "Pokruk/CameraMod", "Pokruk.sCameraMod.dll", "pokruk", pokrukv),
+                       (toomuchinfo, "iiDk-the-actual/TooMuchInfo", "TooMuchInfo.dll", "too much info", toomuchinfov),
+                       (walksim, "iiDk-the-actual/WalkSim", "WalkSim.dll", "walksim", walksimv),
+                       (draw, "drowsiiii/MonkeDraw-Drawing-Pad", "MonkeDrawing.dll", "draw", drawv),
                 };
             }
         }
@@ -203,12 +207,9 @@ namespace Banana
             {
                 return new (CheckBox checkBox, string fileName, string statusText)[]
                 {
-                    (haste, "Haste.dll", "haste"),
-                    (walksim, "WalkSimulator-NonUtilla.dll", "walksim"),
-                    (unknown, "Unkown'sNameTagMod.dll", "unknowntags"),
                     (flick, "unknown's DC Flick Mod.dll", "flick"),
                     (automod, "NoAutoMod.dll", "automod"),
-                    (bans, "DMServersAUPD.dll", "banservers"),
+                    (bans, "DavukssModdingServers.dll", "banservers"),
                     (noleaves, "No Leaves.dll", "leaves !!!"),
                 };
             }

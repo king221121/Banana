@@ -32,6 +32,17 @@
             control = new TabControl();
             cheats = new TabPage();
             panel2 = new Panel();
+            panel5 = new Panel();
+            drawv = new Label();
+            panel24 = new Panel();
+            label31 = new Label();
+            checkBox6 = new CheckBox();
+            label32 = new Label();
+            draw = new CheckBox();
+            panel23 = new Panel();
+            pokrukv = new Label();
+            label30 = new Label();
+            pokruk = new CheckBox();
             panel22 = new Panel();
             label28 = new Label();
             noleaves = new CheckBox();
@@ -80,10 +91,11 @@
             label18 = new Label();
             flick = new CheckBox();
             panel10 = new Panel();
+            toomuchinfov = new Label();
             label17 = new Label();
-            unknown = new CheckBox();
+            toomuchinfo = new CheckBox();
             panel6 = new Panel();
-            walkv = new Label();
+            walksimv = new Label();
             panel7 = new Panel();
             label13 = new Label();
             checkBox2 = new CheckBox();
@@ -91,10 +103,6 @@
             walksim = new CheckBox();
             label12 = new Label();
             label11 = new Label();
-            panel5 = new Panel();
-            hastev = new Label();
-            label10 = new Label();
-            haste = new CheckBox();
             panel4 = new Panel();
             iiv = new Label();
             label9 = new Label();
@@ -124,6 +132,9 @@
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
+            panel5.SuspendLayout();
+            panel24.SuspendLayout();
+            panel23.SuspendLayout();
             panel22.SuspendLayout();
             panel21.SuspendLayout();
             panel8.SuspendLayout();
@@ -141,7 +152,6 @@
             panel10.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
-            panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
@@ -173,6 +183,8 @@
             // 
             panel2.AutoScroll = true;
             panel2.AutoScrollMargin = new Size(0, 100);
+            panel2.Controls.Add(panel5);
+            panel2.Controls.Add(panel23);
             panel2.Controls.Add(panel22);
             panel2.Controls.Add(panel21);
             panel2.Controls.Add(panel8);
@@ -187,7 +199,6 @@
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(label12);
             panel2.Controls.Add(label11);
-            panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(panel3);
@@ -197,6 +208,127 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(490, 231);
             panel2.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(32, 32, 32);
+            panel5.Controls.Add(drawv);
+            panel5.Controls.Add(panel24);
+            panel5.Controls.Add(label32);
+            panel5.Controls.Add(draw);
+            panel5.Location = new Point(0, 358);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(470, 23);
+            panel5.TabIndex = 19;
+            // 
+            // drawv
+            // 
+            drawv.AutoSize = true;
+            drawv.BackColor = Color.Transparent;
+            drawv.ForeColor = Color.White;
+            drawv.Location = new Point(397, 4);
+            drawv.Name = "drawv";
+            drawv.Size = new Size(45, 15);
+            drawv.TabIndex = 18;
+            drawv.Text = "version";
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.FromArgb(32, 32, 32);
+            panel24.Controls.Add(label31);
+            panel24.Controls.Add(checkBox6);
+            panel24.Location = new Point(3, 22);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(480, 23);
+            panel24.TabIndex = 15;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.BackColor = Color.Transparent;
+            label31.ForeColor = Color.White;
+            label31.Location = new Point(281, 4);
+            label31.Name = "label31";
+            label31.Size = new Size(128, 15);
+            label31.TabIndex = 8;
+            label31.Text = "ShibaGT (Original Kyle)";
+            // 
+            // checkBox6
+            // 
+            checkBox6.AutoSize = true;
+            checkBox6.ForeColor = Color.White;
+            checkBox6.Location = new Point(3, 3);
+            checkBox6.Name = "checkBox6";
+            checkBox6.Size = new Size(127, 19);
+            checkBox6.TabIndex = 9;
+            checkBox6.Text = "WalkSim-NonUtilla";
+            checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.BackColor = Color.Transparent;
+            label32.ForeColor = Color.White;
+            label32.Location = new Point(281, 4);
+            label32.Name = "label32";
+            label32.Size = new Size(51, 15);
+            label32.TabIndex = 8;
+            label32.Text = "drowsiiii";
+            // 
+            // draw
+            // 
+            draw.AutoSize = true;
+            draw.ForeColor = Color.White;
+            draw.Location = new Point(3, 3);
+            draw.Name = "draw";
+            draw.Size = new Size(90, 19);
+            draw.TabIndex = 9;
+            draw.Text = "MonkeDraw";
+            draw.UseVisualStyleBackColor = true;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.FromArgb(32, 32, 32);
+            panel23.Controls.Add(pokrukv);
+            panel23.Controls.Add(label30);
+            panel23.Controls.Add(pokruk);
+            panel23.Location = new Point(1, 307);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(470, 23);
+            panel23.TabIndex = 21;
+            // 
+            // pokrukv
+            // 
+            pokrukv.AutoSize = true;
+            pokrukv.BackColor = Color.Transparent;
+            pokrukv.ForeColor = Color.White;
+            pokrukv.Location = new Point(360, 4);
+            pokrukv.Name = "pokrukv";
+            pokrukv.Size = new Size(45, 15);
+            pokrukv.TabIndex = 18;
+            pokrukv.Text = "version";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.BackColor = Color.Transparent;
+            label30.ForeColor = Color.White;
+            label30.Location = new Point(281, 4);
+            label30.Name = "label30";
+            label30.Size = new Size(44, 15);
+            label30.TabIndex = 8;
+            label30.Text = "Pokruk";
+            // 
+            // pokruk
+            // 
+            pokruk.AutoSize = true;
+            pokruk.ForeColor = Color.White;
+            pokruk.Location = new Point(3, 3);
+            pokruk.Name = "pokruk";
+            pokruk.Size = new Size(140, 19);
+            pokruk.TabIndex = 9;
+            pokruk.Text = "Pokruks Camera Mod";
+            pokruk.UseVisualStyleBackColor = true;
             // 
             // panel22
             // 
@@ -247,9 +379,9 @@
             label29.ForeColor = Color.White;
             label29.Location = new Point(281, 4);
             label29.Name = "label29";
-            label29.Size = new Size(42, 15);
+            label29.Size = new Size(63, 15);
             label29.TabIndex = 8;
-            label29.Text = "Ginger";
+            label29.Text = "davuksdev";
             // 
             // bans
             // 
@@ -269,7 +401,7 @@
             panel8.Controls.Add(panel9);
             panel8.Controls.Add(label16);
             panel8.Controls.Add(sodium);
-            panel8.Location = new Point(0, 380);
+            panel8.Location = new Point(0, 402);
             panel8.Name = "panel8";
             panel8.Size = new Size(470, 23);
             panel8.TabIndex = 16;
@@ -345,7 +477,7 @@
             panel17.Controls.Add(panel18);
             panel17.Controls.Add(label25);
             panel17.Controls.Add(ue);
-            panel17.Location = new Point(0, 424);
+            panel17.Location = new Point(0, 446);
             panel17.Name = "panel17";
             panel17.Size = new Size(470, 23);
             panel17.TabIndex = 18;
@@ -410,7 +542,7 @@
             panel19.Controls.Add(panel20);
             panel19.Controls.Add(label27);
             panel19.Controls.Add(automod);
-            panel19.Location = new Point(0, 446);
+            panel19.Location = new Point(0, 468);
             panel19.Name = "panel19";
             panel19.Size = new Size(470, 23);
             panel19.TabIndex = 19;
@@ -476,7 +608,7 @@
             panel15.Controls.Add(panel16);
             panel15.Controls.Add(label23);
             panel15.Controls.Add(media);
-            panel15.Location = new Point(0, 402);
+            panel15.Location = new Point(0, 424);
             panel15.Name = "panel15";
             panel15.Size = new Size(470, 23);
             panel15.TabIndex = 17;
@@ -713,12 +845,24 @@
             // panel10
             // 
             panel10.BackColor = Color.FromArgb(32, 32, 32);
+            panel10.Controls.Add(toomuchinfov);
             panel10.Controls.Add(label17);
-            panel10.Controls.Add(unknown);
+            panel10.Controls.Add(toomuchinfo);
             panel10.Location = new Point(0, 153);
             panel10.Name = "panel10";
             panel10.Size = new Size(470, 23);
             panel10.TabIndex = 14;
+            // 
+            // toomuchinfov
+            // 
+            toomuchinfov.AutoSize = true;
+            toomuchinfov.BackColor = Color.Transparent;
+            toomuchinfov.ForeColor = Color.White;
+            toomuchinfov.Location = new Point(361, 3);
+            toomuchinfov.Name = "toomuchinfov";
+            toomuchinfov.Size = new Size(45, 15);
+            toomuchinfov.TabIndex = 16;
+            toomuchinfov.Text = "version";
             // 
             // label17
             // 
@@ -727,43 +871,43 @@
             label17.ForeColor = Color.White;
             label17.Location = new Point(281, 4);
             label17.Name = "label17";
-            label17.Size = new Size(58, 15);
+            label17.Size = new Size(27, 15);
             label17.TabIndex = 8;
-            label17.Text = "Unknown";
+            label17.Text = "iiDk";
             // 
-            // unknown
+            // toomuchinfo
             // 
-            unknown.AutoSize = true;
-            unknown.ForeColor = Color.White;
-            unknown.Location = new Point(3, 3);
-            unknown.Name = "unknown";
-            unknown.Size = new Size(253, 19);
-            unknown.TabIndex = 9;
-            unknown.Text = "Unknowns Nametag Mod (L TO OPEN GUI)";
-            unknown.UseVisualStyleBackColor = true;
+            toomuchinfo.AutoSize = true;
+            toomuchinfo.ForeColor = Color.White;
+            toomuchinfo.Location = new Point(3, 3);
+            toomuchinfo.Name = "toomuchinfo";
+            toomuchinfo.Size = new Size(98, 19);
+            toomuchinfo.TabIndex = 9;
+            toomuchinfo.Text = "TooMuchInfo";
+            toomuchinfo.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(32, 32, 32);
-            panel6.Controls.Add(walkv);
+            panel6.Controls.Add(walksimv);
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(label14);
             panel6.Controls.Add(walksim);
-            panel6.Location = new Point(0, 358);
+            panel6.Location = new Point(0, 380);
             panel6.Name = "panel6";
             panel6.Size = new Size(470, 23);
             panel6.TabIndex = 14;
             // 
-            // walkv
+            // walksimv
             // 
-            walkv.AutoSize = true;
-            walkv.BackColor = Color.Transparent;
-            walkv.ForeColor = Color.White;
-            walkv.Location = new Point(397, 4);
-            walkv.Name = "walkv";
-            walkv.Size = new Size(45, 15);
-            walkv.TabIndex = 18;
-            walkv.Text = "version";
+            walksimv.AutoSize = true;
+            walksimv.BackColor = Color.Transparent;
+            walksimv.ForeColor = Color.White;
+            walksimv.Location = new Point(397, 4);
+            walksimv.Name = "walksimv";
+            walksimv.Size = new Size(45, 15);
+            walksimv.TabIndex = 18;
+            walksimv.Text = "version";
             // 
             // panel7
             // 
@@ -804,9 +948,9 @@
             label14.ForeColor = Color.White;
             label14.Location = new Point(281, 4);
             label14.Name = "label14";
-            label14.Size = new Size(110, 15);
+            label14.Size = new Size(86, 15);
             label14.TabIndex = 8;
-            label14.Text = "ShibaGT (orig. kyle)";
+            label14.Text = "iiDk (orig. kyle)";
             // 
             // walksim
             // 
@@ -814,9 +958,9 @@
             walksim.ForeColor = Color.White;
             walksim.Location = new Point(3, 3);
             walksim.Name = "walksim";
-            walksim.Size = new Size(127, 19);
+            walksim.Size = new Size(72, 19);
             walksim.TabIndex = 9;
-            walksim.Text = "WalkSim-NonUtilla";
+            walksim.Text = "WalkSim";
             walksim.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -840,50 +984,6 @@
             label11.Size = new Size(63, 15);
             label11.TabIndex = 14;
             label11.Text = "Gameplay:";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(32, 32, 32);
-            panel5.Controls.Add(hastev);
-            panel5.Controls.Add(label10);
-            panel5.Controls.Add(haste);
-            panel5.Location = new Point(0, 110);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(470, 23);
-            panel5.TabIndex = 13;
-            // 
-            // hastev
-            // 
-            hastev.AutoSize = true;
-            hastev.BackColor = Color.Transparent;
-            hastev.ForeColor = Color.White;
-            hastev.Location = new Point(361, 4);
-            hastev.Name = "hastev";
-            hastev.Size = new Size(31, 15);
-            hastev.TabIndex = 12;
-            hastev.Text = "1.0.7";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(281, 4);
-            label10.Name = "label10";
-            label10.Size = new Size(28, 15);
-            label10.TabIndex = 8;
-            label10.Text = "finn";
-            // 
-            // haste
-            // 
-            haste.AutoSize = true;
-            haste.ForeColor = Color.White;
-            haste.Location = new Point(3, 3);
-            haste.Name = "haste";
-            haste.Size = new Size(56, 19);
-            haste.TabIndex = 9;
-            haste.Text = "Haste";
-            haste.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -1164,7 +1264,7 @@
             version.Name = "version";
             version.Size = new Size(117, 15);
             version.TabIndex = 10;
-            version.Text = "Banana Version: 1.0.7";
+            version.Text = "Banana Version: 1.0.9";
             // 
             // changelocation
             // 
@@ -1206,6 +1306,12 @@
             cheats.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel24.ResumeLayout(false);
+            panel24.PerformLayout();
+            panel23.ResumeLayout(false);
+            panel23.PerformLayout();
             panel22.ResumeLayout(false);
             panel22.PerformLayout();
             panel21.ResumeLayout(false);
@@ -1240,8 +1346,6 @@
             panel6.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
@@ -1279,9 +1383,6 @@
         private Panel panel4;
         private Label label9;
         private CheckBox iidk;
-        private Panel panel5;
-        private Label label10;
-        private CheckBox haste;
         private Label label12;
         private Label label11;
         private Panel panel6;
@@ -1298,7 +1399,7 @@
         private CheckBox sodium;
         private Panel panel10;
         private Label label17;
-        private CheckBox unknown;
+        private CheckBox toomuchinfo;
         private Panel panel11;
         private Label label18;
         private CheckBox flick;
@@ -1326,7 +1427,6 @@
         private CheckBox checkBox4;
         private Label label25;
         private CheckBox ue;
-        private Label hastev;
         private Label iiv;
         private Label utillav;
         private Label mediav;
@@ -1334,7 +1434,7 @@
         private Label cosmetxv;
         private Label predv;
         private Label sodiumv;
-        private Label walkv;
+        private Label walksimv;
         private Button changelocation;
         private Panel panel19;
         private Panel panel20;
@@ -1348,5 +1448,17 @@
         private Panel panel22;
         private Label label28;
         private CheckBox noleaves;
+        private Panel panel23;
+        private Label label30;
+        private CheckBox pokruk;
+        private Label pokrukv;
+        private Label toomuchinfov;
+        private Panel panel5;
+        private Label drawv;
+        private Panel panel24;
+        private Label label31;
+        private CheckBox checkBox6;
+        private Label label32;
+        private CheckBox draw;
     }
 }

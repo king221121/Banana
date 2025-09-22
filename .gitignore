@@ -377,3 +377,6 @@ MigrationBackup/
 /Banana/Banana/obj/Debug
 /Banana/Banana/obj/Debug/net8.0-windows/win-x86
 /Banana/Banana/obj/Debug/net8.0-windows
+/Banana/Banana/bin/Debug
+/Banana/Banana/bin/Debug/net8.0-windows
+/Banana/Banana/bin/Debug/net8.0-windows/win-x86
