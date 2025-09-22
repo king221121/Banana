@@ -90,7 +90,7 @@ namespace Banana
             Process.Start("explorer.exe", cleanPath + "\\BepInEx\\plugins");
         }
 
-        public static void bepinexshit() //chatgpt bepinex shit yes yes ik wha ta skid fuck you
+        public static void bepinexshit()
         {
             string downloadUrl = "https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.2/BepInEx_win_x64_5.4.23.2.zip";
             string downloadPath = Path.Combine(Path.GetTempPath(), "BepInEx_win_x64_5.4.23.2.zip");
