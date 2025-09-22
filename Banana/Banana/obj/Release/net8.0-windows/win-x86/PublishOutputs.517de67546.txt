@@ -1,2 +1,0 @@
-C:\Users\kevin\Documents\GitHub\Banana\Banana\Banana\bin\Release\publish\Banana.pdb
-C:\Users\kevin\Documents\GitHub\Banana\Banana\Banana\bin\Release\publish\Banana.exe
