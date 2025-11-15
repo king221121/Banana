@@ -32,6 +32,10 @@
             control = new TabControl();
             cheats = new TabPage();
             panel2 = new Panel();
+            panel25 = new Panel();
+            astraversion = new Label();
+            label33 = new Label();
+            astra = new CheckBox();
             panel5 = new Panel();
             drawv = new Label();
             panel24 = new Panel();
@@ -132,6 +136,7 @@
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
+            panel25.SuspendLayout();
             panel5.SuspendLayout();
             panel24.SuspendLayout();
             panel23.SuspendLayout();
@@ -183,6 +188,7 @@
             // 
             panel2.AutoScroll = true;
             panel2.AutoScrollMargin = new Size(0, 100);
+            panel2.Controls.Add(panel25);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel23);
             panel2.Controls.Add(panel22);
@@ -208,6 +214,50 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(490, 231);
             panel2.TabIndex = 11;
+            // 
+            // panel25
+            // 
+            panel25.BackColor = Color.FromArgb(32, 32, 32);
+            panel25.Controls.Add(astraversion);
+            panel25.Controls.Add(label33);
+            panel25.Controls.Add(astra);
+            panel25.Location = new Point(0, 111);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(470, 23);
+            panel25.TabIndex = 13;
+            // 
+            // astraversion
+            // 
+            astraversion.AutoSize = true;
+            astraversion.BackColor = Color.Transparent;
+            astraversion.ForeColor = Color.White;
+            astraversion.Location = new Point(-99, -99);
+            astraversion.Name = "astraversion";
+            astraversion.Size = new Size(45, 15);
+            astraversion.TabIndex = 11;
+            astraversion.Text = "version";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.BackColor = Color.Transparent;
+            label33.ForeColor = Color.White;
+            label33.Location = new Point(281, 4);
+            label33.Name = "label33";
+            label33.Size = new Size(34, 15);
+            label33.TabIndex = 8;
+            label33.Text = "Astra";
+            // 
+            // astra
+            // 
+            astra.AutoSize = true;
+            astra.ForeColor = Color.White;
+            astra.Location = new Point(3, 3);
+            astra.Name = "astra";
+            astra.Size = new Size(87, 19);
+            astra.TabIndex = 9;
+            astra.Text = "Astra Client";
+            astra.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -302,7 +352,7 @@
             pokrukv.AutoSize = true;
             pokrukv.BackColor = Color.Transparent;
             pokrukv.ForeColor = Color.White;
-            pokrukv.Location = new Point(360, 4);
+            pokrukv.Location = new Point(396, 4);
             pokrukv.Name = "pokrukv";
             pokrukv.Size = new Size(45, 15);
             pokrukv.TabIndex = 18;
@@ -315,9 +365,9 @@
             label30.ForeColor = Color.White;
             label30.Location = new Point(281, 4);
             label30.Name = "label30";
-            label30.Size = new Size(44, 15);
+            label30.Size = new Size(84, 15);
             label30.TabIndex = 8;
-            label30.Text = "Pokruk";
+            label30.Text = "iiDk (orig. yizz)";
             // 
             // pokruk
             // 
@@ -325,9 +375,9 @@
             pokruk.ForeColor = Color.White;
             pokruk.Location = new Point(3, 3);
             pokruk.Name = "pokruk";
-            pokruk.Size = new Size(140, 19);
+            pokruk.Size = new Size(82, 19);
             pokruk.TabIndex = 9;
-            pokruk.Text = "Pokruks Camera Mod";
+            pokruk.Text = "iiCamMod";
             pokruk.UseVisualStyleBackColor = true;
             // 
             // panel22
@@ -521,9 +571,9 @@
             label25.ForeColor = Color.White;
             label25.Location = new Point(281, 4);
             label25.Name = "label25";
-            label25.Size = new Size(150, 15);
+            label25.Size = new Size(175, 15);
             label25.TabIndex = 8;
-            label25.Text = "Tag Monke (orig. sinai dev)";
+            label25.Text = "tagdoesnothing (orig. sinai dev)";
             // 
             // ue
             // 
@@ -694,7 +744,7 @@
             hzv.AutoSize = true;
             hzv.BackColor = Color.Transparent;
             hzv.ForeColor = Color.White;
-            hzv.Location = new Point(361, 3);
+            hzv.Location = new Point(397, 4);
             hzv.Name = "hzv";
             hzv.Size = new Size(45, 15);
             hzv.TabIndex = 17;
@@ -738,7 +788,7 @@
             cosmetxv.AutoSize = true;
             cosmetxv.BackColor = Color.Transparent;
             cosmetxv.ForeColor = Color.White;
-            cosmetxv.Location = new Point(361, 4);
+            cosmetxv.Location = new Point(397, 4);
             cosmetxv.Name = "cosmetxv";
             cosmetxv.Size = new Size(45, 15);
             cosmetxv.TabIndex = 16;
@@ -782,7 +832,7 @@
             predv.AutoSize = true;
             predv.BackColor = Color.Transparent;
             predv.ForeColor = Color.White;
-            predv.Location = new Point(361, 4);
+            predv.Location = new Point(397, 4);
             predv.Name = "predv";
             predv.Size = new Size(45, 15);
             predv.TabIndex = 15;
@@ -858,7 +908,7 @@
             toomuchinfov.AutoSize = true;
             toomuchinfov.BackColor = Color.Transparent;
             toomuchinfov.ForeColor = Color.White;
-            toomuchinfov.Location = new Point(361, 3);
+            toomuchinfov.Location = new Point(397, 3);
             toomuchinfov.Name = "toomuchinfov";
             toomuchinfov.Size = new Size(45, 15);
             toomuchinfov.TabIndex = 16;
@@ -1001,7 +1051,7 @@
             iiv.AutoSize = true;
             iiv.BackColor = Color.Transparent;
             iiv.ForeColor = Color.White;
-            iiv.Location = new Point(361, 3);
+            iiv.Location = new Point(397, 3);
             iiv.Name = "iiv";
             iiv.Size = new Size(45, 15);
             iiv.TabIndex = 11;
@@ -1056,7 +1106,7 @@
             utillav.AutoSize = true;
             utillav.BackColor = Color.Transparent;
             utillav.ForeColor = Color.White;
-            utillav.Location = new Point(361, 3);
+            utillav.Location = new Point(397, 3);
             utillav.Name = "utillav";
             utillav.Size = new Size(45, 15);
             utillav.TabIndex = 10;
@@ -1306,6 +1356,8 @@
             cheats.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel24.ResumeLayout(false);
@@ -1460,5 +1512,9 @@
         private CheckBox checkBox6;
         private Label label32;
         private CheckBox draw;
+        private Panel panel25;
+        private Label astraversion;
+        private Label label33;
+        private CheckBox astra;
     }
 }

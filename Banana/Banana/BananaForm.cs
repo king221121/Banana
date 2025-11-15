@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.1.0";
+        string currentVersion = "1.1.1";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -193,10 +193,11 @@ namespace Banana
                        (forhz, "iiDk-the-actual/ForeverHz", "ForeverHz.dll", "hz mod", hzv),
                        (cosm, "iiDk-the-actual/ForeverCosmetx", "ForeverCosmetx.dll", "cosmetx", cosmetxv),
                        (media, "iiDk-the-actual/GorillaMedia", "GorillaMedia.dll", "media", mediav),
-                       (pokruk, "Pokruk/CameraMod", "Pokruk.sCameraMod.dll", "pokruk", pokrukv),
+                       (pokruk, "iiDk-the-actual/iiCamMod", "iiCamMod.dll", "iicam", pokrukv),
                        (toomuchinfo, "iiDk-the-actual/TooMuchInfo", "TooMuchInfo.dll", "too much info", toomuchinfov),
                        (walksim, "iiDk-the-actual/WalkSim", "WalkSim.dll", "walksim", walksimv),
                        (draw, "drowsiiii/MonkeDraw-Drawing-Pad", "MonkeDrawing.dll", "draw", drawv),
+                       (astra, "ASTRA228b/ASTRA-CLIENT", "ASTRA.CLIENT.dll", "astra", astraversion),
                 };
             }
         }
