@@ -397,9 +397,9 @@
             label28.ForeColor = Color.White;
             label28.Location = new Point(281, 4);
             label28.Name = "label28";
-            label28.Size = new Size(71, 15);
+            label28.Size = new Size(35, 15);
             label28.TabIndex = 8;
-            label28.Text = "seayo, astral";
+            label28.Text = "astral";
             // 
             // noleaves
             // 

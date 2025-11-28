@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.1.1";
+        string currentVersion = "1.1.2";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -288,6 +288,8 @@ namespace Banana
 
         private void disableenableupdate()
         {
+            if (!File.Exists(gtaglocation + "\\winhttp.d") && !File.Exists(gtaglocation + "\\winhttp.dll"))
+            { disableenable.Visible = false;  return; }
             if (File.Exists(gtaglocation + "\\winhttp.dll"))
             {
                 disableenable.BackColor = Color.Red;
@@ -321,7 +323,7 @@ namespace Banana
                 {
                     string selectedPath = folderDialog.SelectedPath;
                     MessageBox.Show("Selected Folder: " + selectedPath);
-                    // You can also set this to a TextBox or use it in your code
+
                     label1.Text = selectedPath;
                     gtaglocation = selectedPath;
                 }
