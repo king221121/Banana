@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.1.2";
+        string currentVersion = "1.1.3";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -197,7 +197,8 @@ namespace Banana
                        (toomuchinfo, "iiDk-the-actual/TooMuchInfo", "TooMuchInfo.dll", "too much info", toomuchinfov),
                        (walksim, "iiDk-the-actual/WalkSim", "WalkSim.dll", "walksim", walksimv),
                        (draw, "drowsiiii/MonkeDraw-Drawing-Pad", "MonkeDrawing.dll", "draw", drawv),
-                       (astra, "ASTRA228b/ASTRA-CLIENT", "ASTRA.CLIENT.dll", "astra", astraversion),
+                       (casting, "HanSolo1000Falcon/CastingShouldBeFree", "CastingShouldBeFree.dll", "casting", castingv),
+                       (zlothy, "ZlothY29IQ/Zlothy-Nametag", "ZlothYNametag.dll", "zlothy", zlothyv),
                 };
             }
         }
@@ -209,8 +210,8 @@ namespace Banana
                 return new (CheckBox checkBox, string fileName, string statusText)[]
                 {
                     (flick, "unknown's DC Flick Mod.dll", "flick"),
-                    (automod, "NoAutoMod.dll", "automod"),
-                    (bans, "DavukssModdingServers.dll", "banservers"),
+                    (bans, "bannedservers.dll", "banservers"),
+                    (spectral, "Spectral Menu.dll", "spectral"),
                     (noleaves, "No Leaves.dll", "leaves !!!"),
                 };
             }

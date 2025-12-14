@@ -32,10 +32,14 @@
             control = new TabControl();
             cheats = new TabPage();
             panel2 = new Panel();
+            panel26 = new Panel();
+            zlothyv = new Label();
+            label34 = new Label();
+            zlothy = new CheckBox();
             panel25 = new Panel();
             astraversion = new Label();
             label33 = new Label();
-            astra = new CheckBox();
+            spectral = new CheckBox();
             panel5 = new Panel();
             drawv = new Label();
             panel24 = new Panel();
@@ -67,11 +71,12 @@
             label25 = new Label();
             ue = new CheckBox();
             panel19 = new Panel();
+            castingv = new Label();
             panel20 = new Panel();
             label26 = new Label();
             checkBox5 = new CheckBox();
             label27 = new Label();
-            automod = new CheckBox();
+            casting = new CheckBox();
             panel15 = new Panel();
             mediav = new Label();
             panel16 = new Panel();
@@ -136,6 +141,7 @@
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
+            panel26.SuspendLayout();
             panel25.SuspendLayout();
             panel5.SuspendLayout();
             panel24.SuspendLayout();
@@ -182,12 +188,13 @@
             cheats.Padding = new Padding(3);
             cheats.Size = new Size(492, 231);
             cheats.TabIndex = 0;
-            cheats.Text = "Cheats";
+            cheats.Text = "Mods";
             // 
             // panel2
             // 
             panel2.AutoScroll = true;
             panel2.AutoScrollMargin = new Size(0, 100);
+            panel2.Controls.Add(panel26);
             panel2.Controls.Add(panel25);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel23);
@@ -215,12 +222,56 @@
             panel2.Size = new Size(490, 231);
             panel2.TabIndex = 11;
             // 
+            // panel26
+            // 
+            panel26.BackColor = Color.FromArgb(32, 32, 32);
+            panel26.Controls.Add(zlothyv);
+            panel26.Controls.Add(label34);
+            panel26.Controls.Add(zlothy);
+            panel26.Location = new Point(0, 192);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(470, 23);
+            panel26.TabIndex = 17;
+            // 
+            // zlothyv
+            // 
+            zlothyv.AutoSize = true;
+            zlothyv.BackColor = Color.Transparent;
+            zlothyv.ForeColor = Color.White;
+            zlothyv.Location = new Point(397, 3);
+            zlothyv.Name = "zlothyv";
+            zlothyv.Size = new Size(45, 15);
+            zlothyv.TabIndex = 16;
+            zlothyv.Text = "version";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.BackColor = Color.Transparent;
+            label34.ForeColor = Color.White;
+            label34.Location = new Point(281, 4);
+            label34.Name = "label34";
+            label34.Size = new Size(41, 15);
+            label34.TabIndex = 8;
+            label34.Text = "Zlothy";
+            // 
+            // zlothy
+            // 
+            zlothy.AutoSize = true;
+            zlothy.ForeColor = Color.White;
+            zlothy.Location = new Point(3, 3);
+            zlothy.Name = "zlothy";
+            zlothy.Size = new Size(117, 19);
+            zlothy.TabIndex = 9;
+            zlothy.Text = "Zlothy Nametags";
+            zlothy.UseVisualStyleBackColor = true;
+            // 
             // panel25
             // 
             panel25.BackColor = Color.FromArgb(32, 32, 32);
             panel25.Controls.Add(astraversion);
             panel25.Controls.Add(label33);
-            panel25.Controls.Add(astra);
+            panel25.Controls.Add(spectral);
             panel25.Location = new Point(0, 111);
             panel25.Name = "panel25";
             panel25.Size = new Size(470, 23);
@@ -244,20 +295,20 @@
             label33.ForeColor = Color.White;
             label33.Location = new Point(281, 4);
             label33.Name = "label33";
-            label33.Size = new Size(34, 15);
+            label33.Size = new Size(50, 15);
             label33.TabIndex = 8;
-            label33.Text = "Astra";
+            label33.Text = "Cheemz";
             // 
-            // astra
+            // spectral
             // 
-            astra.AutoSize = true;
-            astra.ForeColor = Color.White;
-            astra.Location = new Point(3, 3);
-            astra.Name = "astra";
-            astra.Size = new Size(87, 19);
-            astra.TabIndex = 9;
-            astra.Text = "Astra Client";
-            astra.UseVisualStyleBackColor = true;
+            spectral.AutoSize = true;
+            spectral.ForeColor = Color.White;
+            spectral.Location = new Point(3, 3);
+            spectral.Name = "spectral";
+            spectral.Size = new Size(102, 19);
+            spectral.TabIndex = 9;
+            spectral.Text = "Spectral Menu";
+            spectral.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -266,7 +317,7 @@
             panel5.Controls.Add(panel24);
             panel5.Controls.Add(label32);
             panel5.Controls.Add(draw);
-            panel5.Location = new Point(0, 358);
+            panel5.Location = new Point(0, 411);
             panel5.Name = "panel5";
             panel5.Size = new Size(470, 23);
             panel5.TabIndex = 19;
@@ -342,7 +393,7 @@
             panel23.Controls.Add(pokrukv);
             panel23.Controls.Add(label30);
             panel23.Controls.Add(pokruk);
-            panel23.Location = new Point(1, 307);
+            panel23.Location = new Point(1, 369);
             panel23.Name = "panel23";
             panel23.Size = new Size(470, 23);
             panel23.TabIndex = 21;
@@ -385,7 +436,7 @@
             panel22.BackColor = Color.FromArgb(32, 32, 32);
             panel22.Controls.Add(label28);
             panel22.Controls.Add(noleaves);
-            panel22.Location = new Point(0, 285);
+            panel22.Location = new Point(0, 347);
             panel22.Name = "panel22";
             panel22.Size = new Size(470, 23);
             panel22.TabIndex = 20;
@@ -417,7 +468,7 @@
             panel21.BackColor = Color.FromArgb(32, 32, 32);
             panel21.Controls.Add(label29);
             panel21.Controls.Add(bans);
-            panel21.Location = new Point(0, 263);
+            panel21.Location = new Point(0, 325);
             panel21.Name = "panel21";
             panel21.Size = new Size(470, 23);
             panel21.TabIndex = 19;
@@ -429,9 +480,9 @@
             label29.ForeColor = Color.White;
             label29.Location = new Point(281, 4);
             label29.Name = "label29";
-            label29.Size = new Size(63, 15);
+            label29.Size = new Size(35, 15);
             label29.TabIndex = 8;
-            label29.Text = "davuksdev";
+            label29.Text = "shiny";
             // 
             // bans
             // 
@@ -451,7 +502,7 @@
             panel8.Controls.Add(panel9);
             panel8.Controls.Add(label16);
             panel8.Controls.Add(sodium);
-            panel8.Location = new Point(0, 402);
+            panel8.Location = new Point(0, 455);
             panel8.Name = "panel8";
             panel8.Size = new Size(470, 23);
             panel8.TabIndex = 16;
@@ -527,7 +578,7 @@
             panel17.Controls.Add(panel18);
             panel17.Controls.Add(label25);
             panel17.Controls.Add(ue);
-            panel17.Location = new Point(0, 446);
+            panel17.Location = new Point(0, 499);
             panel17.Name = "panel17";
             panel17.Size = new Size(470, 23);
             panel17.TabIndex = 18;
@@ -589,13 +640,25 @@
             // panel19
             // 
             panel19.BackColor = Color.FromArgb(32, 32, 32);
+            panel19.Controls.Add(castingv);
             panel19.Controls.Add(panel20);
             panel19.Controls.Add(label27);
-            panel19.Controls.Add(automod);
-            panel19.Location = new Point(0, 468);
+            panel19.Controls.Add(casting);
+            panel19.Location = new Point(0, 521);
             panel19.Name = "panel19";
             panel19.Size = new Size(470, 23);
             panel19.TabIndex = 19;
+            // 
+            // castingv
+            // 
+            castingv.AutoSize = true;
+            castingv.BackColor = Color.Transparent;
+            castingv.ForeColor = Color.White;
+            castingv.Location = new Point(397, 4);
+            castingv.Name = "castingv";
+            castingv.Size = new Size(45, 15);
+            castingv.TabIndex = 21;
+            castingv.Text = "version";
             // 
             // panel20
             // 
@@ -636,20 +699,20 @@
             label27.ForeColor = Color.White;
             label27.Location = new Point(281, 4);
             label27.Name = "label27";
-            label27.Size = new Size(51, 15);
+            label27.Size = new Size(109, 15);
             label27.TabIndex = 8;
-            label27.Text = "64Will64";
+            label27.Text = "HanSolo1000falcon";
             // 
-            // automod
+            // casting
             // 
-            automod.AutoSize = true;
-            automod.ForeColor = Color.White;
-            automod.Location = new Point(3, 3);
-            automod.Name = "automod";
-            automod.Size = new Size(99, 19);
-            automod.TabIndex = 9;
-            automod.Text = "No Auto Mod";
-            automod.UseVisualStyleBackColor = true;
+            casting.AutoSize = true;
+            casting.ForeColor = Color.White;
+            casting.Location = new Point(3, 3);
+            casting.Name = "casting";
+            casting.Size = new Size(147, 19);
+            casting.TabIndex = 9;
+            casting.Text = "Casting Should Be Free";
+            casting.UseVisualStyleBackColor = true;
             // 
             // panel15
             // 
@@ -658,7 +721,7 @@
             panel15.Controls.Add(panel16);
             panel15.Controls.Add(label23);
             panel15.Controls.Add(media);
-            panel15.Location = new Point(0, 424);
+            panel15.Location = new Point(0, 477);
             panel15.Name = "panel15";
             panel15.Size = new Size(470, 23);
             panel15.TabIndex = 17;
@@ -734,7 +797,7 @@
             panel14.Controls.Add(hzv);
             panel14.Controls.Add(label21);
             panel14.Controls.Add(forhz);
-            panel14.Location = new Point(0, 241);
+            panel14.Location = new Point(0, 303);
             panel14.Name = "panel14";
             panel14.Size = new Size(470, 23);
             panel14.TabIndex = 18;
@@ -778,7 +841,7 @@
             panel13.Controls.Add(cosmetxv);
             panel13.Controls.Add(label20);
             panel13.Controls.Add(cosm);
-            panel13.Location = new Point(0, 219);
+            panel13.Location = new Point(0, 281);
             panel13.Name = "panel13";
             panel13.Size = new Size(470, 23);
             panel13.TabIndex = 17;
@@ -822,7 +885,7 @@
             panel12.Controls.Add(predv);
             panel12.Controls.Add(label19);
             panel12.Controls.Add(forpreds);
-            panel12.Location = new Point(0, 197);
+            panel12.Location = new Point(0, 259);
             panel12.Name = "panel12";
             panel12.Size = new Size(470, 23);
             panel12.TabIndex = 16;
@@ -865,7 +928,7 @@
             panel11.BackColor = Color.FromArgb(32, 32, 32);
             panel11.Controls.Add(label18);
             panel11.Controls.Add(flick);
-            panel11.Location = new Point(0, 175);
+            panel11.Location = new Point(0, 237);
             panel11.Name = "panel11";
             panel11.Size = new Size(470, 23);
             panel11.TabIndex = 15;
@@ -898,7 +961,7 @@
             panel10.Controls.Add(toomuchinfov);
             panel10.Controls.Add(label17);
             panel10.Controls.Add(toomuchinfo);
-            panel10.Location = new Point(0, 153);
+            panel10.Location = new Point(0, 215);
             panel10.Name = "panel10";
             panel10.Size = new Size(470, 23);
             panel10.TabIndex = 14;
@@ -943,7 +1006,7 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(label14);
             panel6.Controls.Add(walksim);
-            panel6.Location = new Point(0, 380);
+            panel6.Location = new Point(0, 433);
             panel6.Name = "panel6";
             panel6.Size = new Size(470, 23);
             panel6.TabIndex = 14;
@@ -1018,7 +1081,7 @@
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.ForeColor = Color.White;
-            label12.Location = new Point(0, 343);
+            label12.Location = new Point(0, 396);
             label12.Name = "label12";
             label12.Size = new Size(38, 15);
             label12.TabIndex = 15;
@@ -1029,7 +1092,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.ForeColor = Color.White;
-            label11.Location = new Point(3, 135);
+            label11.Location = new Point(3, 170);
             label11.Name = "label11";
             label11.Size = new Size(63, 15);
             label11.TabIndex = 14;
@@ -1158,6 +1221,8 @@
             // bepinex
             // 
             bepinex.AutoSize = true;
+            bepinex.Checked = true;
+            bepinex.CheckState = CheckState.Checked;
             bepinex.ForeColor = Color.White;
             bepinex.Location = new Point(3, 3);
             bepinex.Name = "bepinex";
@@ -1356,6 +1421,8 @@
             cheats.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
             panel25.ResumeLayout(false);
             panel25.PerformLayout();
             panel5.ResumeLayout(false);
@@ -1481,7 +1548,6 @@
         private CheckBox ue;
         private Label iiv;
         private Label utillav;
-        private Label mediav;
         private Label hzv;
         private Label cosmetxv;
         private Label predv;
@@ -1493,7 +1559,7 @@
         private Label label26;
         private CheckBox checkBox5;
         private Label label27;
-        private CheckBox automod;
+        private CheckBox casting;
         private Panel panel21;
         private Label label29;
         private CheckBox bans;
@@ -1515,6 +1581,12 @@
         private Panel panel25;
         private Label astraversion;
         private Label label33;
-        private CheckBox astra;
+        private CheckBox spectral;
+        private Label castingv;
+        private Label mediav;
+        private Panel panel26;
+        private Label zlothyv;
+        private Label label34;
+        private CheckBox zlothy;
     }
 }
