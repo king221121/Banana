@@ -295,9 +295,9 @@
             label33.ForeColor = Color.White;
             label33.Location = new Point(281, 4);
             label33.Name = "label33";
-            label33.Size = new Size(50, 15);
+            label33.Size = new Size(115, 15);
             label33.TabIndex = 8;
-            label33.Text = "Cheemz";
+            label33.Text = "Cha554 and Cheemz";
             // 
             // spectral
             // 
