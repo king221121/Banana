@@ -1,29 +1,62 @@
+<div align="center">
+
 # 🍌 Banana Mod Manager
-![Banana Mod Manager Banner](banana.png)
+<img src="banana.png" alt="Banana Mod Manager Banner" />
 
-**A modern, community-first mod manager for Gorilla Tag.**
-Discord: https://discord.gg/NtgqZkwuPy
+<br/>
 
----
+![Downloads](https://img.shields.io/github/downloads/ShibaGT/Banana/total?label=downloads&color=FFD84D&style=flat-square)
+![Stars](https://img.shields.io/github/stars/ShibaGT/Banana?label=stars&color=FFD84D&style=flat-square)
+![Issues](https://img.shields.io/github/issues/ShibaGT/Banana?label=issues&color=FFD84D&style=flat-square)
+[![Discord](https://img.shields.io/discord/1388718348707037184?label=discord&color=FFD84D&style=flat-square)](https://discord.gg/NtgqZkwuPy)
 
-### ✨ About
+<br/>
 
-Created by **ShibaGT**, Banana is a sleek and powerful alternative to Monke Mod Manager. Built for players who want the **latest mods, and frequent updates**.
+**A modern, community first mod manager for Gorilla Tag.**
 
-Whether you're a casual player or a mod creator, Banana makes it easy to stay ahead with the newest and most popular mods as soon as they're announced.
-
----
-
-### 🚀 Why Choose Banana?
-
-* 🔄 **Always Up-to-Date:** Installs the most recent mod versions.
-* 📦 **New Mods Added Constantly:** Fresh content whenever new mods drop.
-* ⚡ **Fast & Easy to Use:** No unnecessary things, just clean, modern mod management.
-* 🦍 **Built for the Gorilla Tag Community:** By a cheater, for cheaters.
+</div>
 
 ---
 
-### 📥 Download
+## ✨ Overview
 
-[Download Here!](https://github.com/ShibaGT/Banana/releases/latest/download/Banana.exe)
-Note: This auto updates! you only need to download this ONCE unless I change something drastic.
+**Banana Mod Manager**, created by ShibaGT, is a fast, lightweight, and modern alternative to Monke Mod Manager.
+
+Built for players and mod developers who want **instant access to the newest mods**, frequent updates, and a clean, no nonsense experience.
+
+---
+
+## 🚀 Features
+
+- 🔄 **Always Up to Date**  
+  Automatically installs the latest mod versions.
+
+- 📦 **New Mods Added Constantly**  
+  New mods are added as soon as they’re released.
+
+- ⚡ **Fast & Lightweight**  
+  Easy to use UI with no unnecessary clutter.
+
+- 🦍 **Community Ran**  
+  Designed for the Gorilla Tag modding community.
+
+---
+
+## 📥 Download
+
+<div align="center">
+
+👉 **[Download Banana Mod Manager](https://github.com/ShibaGT/Banana/releases/latest/download/Banana.exe)**
+
+</div>
+
+> **Note:** Banana auto-updates.  
+> You only need to download it **once**, unless a major breaking change occurs.
+
+---
+
+## 📌 Links
+
+- 💬 **Discord:** https://discord.gg/NtgqZkwuPy  
+- 🧑‍💻 **Developer:** https://github.com/ShibaGT
+- 👉 **[Alternative Banana Download (Fixes any issues with normal)](https://github.com/ShibaGT/Banana/releases/latest/download/Banana.exe)**
