@@ -19,7 +19,7 @@ namespace Banana
 
         static string gtaglocation = getgtpath();
         string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.1.35";
+        string currentVersion = "1.1.4";
         static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
         {
             string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
@@ -74,7 +74,7 @@ namespace Banana
             label1.Text = gtaglocation;
             status.Text = "init path";
 
-            disableenableupdate();
+            updateSettings();
             UpdateVersions();
         }
 
@@ -124,15 +124,16 @@ namespace Banana
                 using (WebClient client = new WebClient())
                     File.WriteAllText(targetPath + "\\BepInEx\\config\\BepInEx.cfg", client.DownloadString($"{baseUrl}config.txt"));
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while creating the plugins directory or writing the config file: " + ex.Message);
             }
         }
 
 
-        public static void ueZip() //chatgpt bepinex shit yes yes ik wha ta skid fuck you
+        public void ueZip()
         {
+            status.Text = "ue";
             string downloadUrl = $"{baseUrl}Banana/ModFiles/UnityFixV3_LTS.zip";
             string downloadPath = Path.Combine(Path.GetTempPath(), "UnityFixV3_LTS.zip");
             string extractTempPath = Path.Combine(Path.GetTempPath(), "UEExtract");
@@ -175,10 +176,8 @@ namespace Banana
             }
         }
 
-        public static void DownloadFromRepo(string mod, string to)
-        {
+        public static void DownloadFromRepo(string mod, string to) =>
             new WebClient().DownloadFile($"{baseUrl}Banana/ModFiles/{mod}", to);
-        }
 
         public (CheckBox checkBox, string repo, string outputFile, string statusText, Label versionlabel)[] githubMods
         {
@@ -199,6 +198,8 @@ namespace Banana
                        (draw, "drowsiiii/MonkeDraw-Drawing-Pad", "MonkeDrawing.dll", "draw", drawv),
                        (casting, "HanSolo1000Falcon/CastingShouldBeFree", "CastingShouldBeFree.dll", "casting", castingv),
                        (zlothy, "ZlothY29IQ/Zlothy-Nametag", "ZlothYNametag.dll", "zlothy", zlothyv),
+                       (shirts, "developer9998/GorillaShirts", "GorillaShirts.dll", "shirts", shirtsv),
+                       (volume, "ZlothY29IQ/GorillaVolumeControls", "GorillaVolumeControls.dll", "volumecontrols", volumev),
                 };
             }
         }
@@ -213,17 +214,23 @@ namespace Banana
                     (bans, "bannedservers.dll", "banservers"),
                     (spectral, "Spectral Menu.dll", "spectral"),
                     (noleaves, "No Leaves.dll", "leaves !!!"),
+                    (arss, "AutoReportSystem.dll", "ars"),
                 };
             }
         }
 
         public async void UpdateVersions()
         {
-            foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in githubMods)
+            try
             {
-                await GetVersionFromGithub(repo);
-                versionlabel.Text = githubVersion;
+                foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in githubMods)
+                {
+                    await GetVersionFromGithub(repo);
+                    versionlabel.Text = githubVersion;
+                }
             }
+            catch (Exception e)
+            { MessageBox.Show("An error occurred while fetching mod versions. Error: " + e); }
         }
 
         private async void download_Click(object sender, EventArgs e)
@@ -244,18 +251,24 @@ namespace Banana
                 }
 
                 if (ue.Checked)
-                {
                     ueZip();
-                    status.Text = "ue";
-                }
 
                 foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in githubMods)
-                {
+                {   
                     if (checkBox.Checked)
                     {
+                        string outputFileFinal = outputFile;
+                        if (createFolders)
+                        {
+                            string modFolder = Path.Combine(pluginsloc, Path.GetFileNameWithoutExtension(outputFile));
+                            if (!Directory.Exists(modFolder))
+                                Directory.CreateDirectory(modFolder);
+                            outputFileFinal = Path.Combine(modFolder, outputFile);
+                        }
+
                         status.Text = statusText;
                         await GetDownloadFromGithub(repo);
-                        w.DownloadFile(githubDownload, Path.Combine(pluginsloc, outputFile));
+                        w.DownloadFile(githubDownload, Path.Combine(pluginsloc, outputFileFinal));
                     }
                 }
 
@@ -263,8 +276,16 @@ namespace Banana
                 {
                     if (checkBox.Checked)
                     {
+                        string outputFileFinal = fileName;
+                        if (createFolders)
+                        {
+                            string modFolder = Path.Combine(pluginsloc, Path.GetFileNameWithoutExtension(fileName));
+                            if (!Directory.Exists(modFolder))
+                                Directory.CreateDirectory(modFolder);
+                            outputFileFinal = Path.Combine(modFolder, fileName);
+                        }
                         status.Text = statusText;
-                        DownloadFromRepo(fileName, Path.Combine(pluginsloc, fileName));
+                        DownloadFromRepo(fileName, Path.Combine(pluginsloc, outputFileFinal));
                     }
                 }
 
@@ -284,13 +305,13 @@ namespace Banana
             else
                 System.IO.File.Move($"{gtaglocation}\\winhttp.d", $"{gtaglocation}\\winhttp.dll");
 
-            disableenableupdate();
+            updateSettings();
         }
 
-        private void disableenableupdate()
+        private void updateSettings()
         {
             if (!File.Exists(gtaglocation + "\\winhttp.d") && !File.Exists(gtaglocation + "\\winhttp.dll"))
-            { disableenable.Visible = false;  return; }
+            { disableenable.Visible = false; return; }
             if (File.Exists(gtaglocation + "\\winhttp.dll"))
             {
                 disableenable.BackColor = Color.Red;
@@ -301,6 +322,11 @@ namespace Banana
                 disableenable.BackColor = Color.Green;
                 disableenable.Text = "Enable Mods";
             }
+
+            if (File.Exists(bananaDir + "\\create_folders.txt"))
+                folders.Checked = bool.Parse(File.ReadAllText(bananaDir + "\\create_folders.txt"));
+            else
+                folders.Checked = false;
         }
 
         private void discord_Click(object sender, EventArgs e)
@@ -329,6 +355,13 @@ namespace Banana
                     gtaglocation = selectedPath;
                 }
             }
+        }
+
+        bool createFolders;
+        private void folders_CheckedChanged(object sender, EventArgs e)
+        {
+            createFolders = folders.Checked;
+            File.WriteAllText(Path.Combine(bananaDir, "create_folders.txt"), folders.Checked.ToString());
         }
     }
 }
