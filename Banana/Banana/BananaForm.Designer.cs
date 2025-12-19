@@ -32,6 +32,13 @@
             control = new TabControl();
             cheats = new TabPage();
             panel2 = new Panel();
+            panel31 = new Panel();
+            whodisv = new Label();
+            panel32 = new Panel();
+            label40 = new Label();
+            checkBox8 = new CheckBox();
+            label41 = new Label();
+            whodis = new CheckBox();
             panel29 = new Panel();
             panel30 = new Panel();
             label37 = new Label();
@@ -156,6 +163,8 @@
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
+            panel31.SuspendLayout();
+            panel32.SuspendLayout();
             panel29.SuspendLayout();
             panel30.SuspendLayout();
             panel28.SuspendLayout();
@@ -213,6 +222,7 @@
             // 
             panel2.AutoScroll = true;
             panel2.AutoScrollMargin = new Size(0, 100);
+            panel2.Controls.Add(panel31);
             panel2.Controls.Add(panel29);
             panel2.Controls.Add(panel28);
             panel2.Controls.Add(panel27);
@@ -244,13 +254,90 @@
             panel2.Size = new Size(490, 231);
             panel2.TabIndex = 11;
             // 
+            // panel31
+            // 
+            panel31.BackColor = Color.FromArgb(32, 32, 32);
+            panel31.Controls.Add(whodisv);
+            panel31.Controls.Add(panel32);
+            panel31.Controls.Add(label41);
+            panel31.Controls.Add(whodis);
+            panel31.Location = new Point(-1, 428);
+            panel31.Name = "panel31";
+            panel31.Size = new Size(470, 23);
+            panel31.TabIndex = 20;
+            // 
+            // whodisv
+            // 
+            whodisv.AutoSize = true;
+            whodisv.BackColor = Color.Transparent;
+            whodisv.ForeColor = Color.White;
+            whodisv.Location = new Point(397, 4);
+            whodisv.Name = "whodisv";
+            whodisv.Size = new Size(45, 15);
+            whodisv.TabIndex = 18;
+            whodisv.Text = "version";
+            // 
+            // panel32
+            // 
+            panel32.BackColor = Color.FromArgb(32, 32, 32);
+            panel32.Controls.Add(label40);
+            panel32.Controls.Add(checkBox8);
+            panel32.Location = new Point(3, 22);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(480, 23);
+            panel32.TabIndex = 15;
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.BackColor = Color.Transparent;
+            label40.ForeColor = Color.White;
+            label40.Location = new Point(281, 4);
+            label40.Name = "label40";
+            label40.Size = new Size(128, 15);
+            label40.TabIndex = 8;
+            label40.Text = "ShibaGT (Original Kyle)";
+            // 
+            // checkBox8
+            // 
+            checkBox8.AutoSize = true;
+            checkBox8.ForeColor = Color.White;
+            checkBox8.Location = new Point(3, 3);
+            checkBox8.Name = "checkBox8";
+            checkBox8.Size = new Size(127, 19);
+            checkBox8.TabIndex = 9;
+            checkBox8.Text = "WalkSim-NonUtilla";
+            checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.BackColor = Color.Transparent;
+            label41.ForeColor = Color.White;
+            label41.Location = new Point(281, 4);
+            label41.Name = "label41";
+            label41.Size = new Size(51, 15);
+            label41.TabIndex = 8;
+            label41.Text = "ShibaGT";
+            // 
+            // whodis
+            // 
+            whodis.AutoSize = true;
+            whodis.ForeColor = Color.White;
+            whodis.Location = new Point(3, 3);
+            whodis.Name = "whodis";
+            whodis.Size = new Size(67, 19);
+            whodis.TabIndex = 9;
+            whodis.Text = "WhoDis";
+            whodis.UseVisualStyleBackColor = true;
+            // 
             // panel29
             // 
             panel29.BackColor = Color.FromArgb(32, 32, 32);
             panel29.Controls.Add(panel30);
             panel29.Controls.Add(label38);
             panel29.Controls.Add(arss);
-            panel29.Location = new Point(0, 562);
+            panel29.Location = new Point(0, 583);
             panel29.Name = "panel29";
             panel29.Size = new Size(470, 23);
             panel29.TabIndex = 22;
@@ -492,7 +579,7 @@
             panel5.Controls.Add(panel24);
             panel5.Controls.Add(label32);
             panel5.Controls.Add(draw);
-            panel5.Location = new Point(0, 430);
+            panel5.Location = new Point(0, 451);
             panel5.Name = "panel5";
             panel5.Size = new Size(470, 23);
             panel5.TabIndex = 19;
@@ -677,7 +764,7 @@
             panel8.Controls.Add(panel9);
             panel8.Controls.Add(label16);
             panel8.Controls.Add(sodium);
-            panel8.Location = new Point(0, 474);
+            panel8.Location = new Point(0, 495);
             panel8.Name = "panel8";
             panel8.Size = new Size(470, 23);
             panel8.TabIndex = 16;
@@ -753,7 +840,7 @@
             panel17.Controls.Add(panel18);
             panel17.Controls.Add(label25);
             panel17.Controls.Add(ue);
-            panel17.Location = new Point(0, 518);
+            panel17.Location = new Point(0, 539);
             panel17.Name = "panel17";
             panel17.Size = new Size(470, 23);
             panel17.TabIndex = 18;
@@ -819,7 +906,7 @@
             panel19.Controls.Add(panel20);
             panel19.Controls.Add(label27);
             panel19.Controls.Add(casting);
-            panel19.Location = new Point(0, 540);
+            panel19.Location = new Point(0, 561);
             panel19.Name = "panel19";
             panel19.Size = new Size(470, 23);
             panel19.TabIndex = 19;
@@ -896,7 +983,7 @@
             panel15.Controls.Add(panel16);
             panel15.Controls.Add(label23);
             panel15.Controls.Add(media);
-            panel15.Location = new Point(0, 496);
+            panel15.Location = new Point(0, 517);
             panel15.Name = "panel15";
             panel15.Size = new Size(470, 23);
             panel15.TabIndex = 17;
@@ -1181,7 +1268,7 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(label14);
             panel6.Controls.Add(walksim);
-            panel6.Location = new Point(0, 452);
+            panel6.Location = new Point(0, 473);
             panel6.Name = "panel6";
             panel6.Size = new Size(470, 23);
             panel6.TabIndex = 14;
@@ -1256,7 +1343,7 @@
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.ForeColor = Color.White;
-            label12.Location = new Point(0, 415);
+            label12.Location = new Point(0, 412);
             label12.Name = "label12";
             label12.Size = new Size(38, 15);
             label12.TabIndex = 15;
@@ -1609,6 +1696,10 @@
             cheats.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel31.ResumeLayout(false);
+            panel31.PerformLayout();
+            panel32.ResumeLayout(false);
+            panel32.PerformLayout();
             panel29.ResumeLayout(false);
             panel29.PerformLayout();
             panel30.ResumeLayout(false);
@@ -1800,5 +1891,12 @@
         private Label label38;
         private CheckBox arss;
         private CheckBox folders;
+        private Panel panel31;
+        private Label whodisv;
+        private Panel panel32;
+        private Label label40;
+        private CheckBox checkBox8;
+        private Label label41;
+        private CheckBox whodis;
     }
 }
