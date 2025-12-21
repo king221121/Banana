@@ -117,9 +117,6 @@
             predv = new Label();
             label19 = new Label();
             forpreds = new CheckBox();
-            panel11 = new Panel();
-            label18 = new Label();
-            flick = new CheckBox();
             panel10 = new Panel();
             toomuchinfov = new Label();
             label17 = new Label();
@@ -187,7 +184,6 @@
             panel14.SuspendLayout();
             panel13.SuspendLayout();
             panel12.SuspendLayout();
-            panel11.SuspendLayout();
             panel10.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
@@ -239,7 +235,6 @@
             panel2.Controls.Add(panel14);
             panel2.Controls.Add(panel13);
             panel2.Controls.Add(panel12);
-            panel2.Controls.Add(panel11);
             panel2.Controls.Add(panel10);
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(label12);
@@ -261,7 +256,7 @@
             panel31.Controls.Add(panel32);
             panel31.Controls.Add(label41);
             panel31.Controls.Add(whodis);
-            panel31.Location = new Point(-1, 428);
+            panel31.Location = new Point(-1, 399);
             panel31.Name = "panel31";
             panel31.Size = new Size(470, 23);
             panel31.TabIndex = 20;
@@ -337,7 +332,7 @@
             panel29.Controls.Add(panel30);
             panel29.Controls.Add(label38);
             panel29.Controls.Add(arss);
-            panel29.Location = new Point(0, 583);
+            panel29.Location = new Point(0, 554);
             panel29.Name = "panel29";
             panel29.Size = new Size(470, 23);
             panel29.TabIndex = 22;
@@ -402,7 +397,7 @@
             panel28.Controls.Add(volumev);
             panel28.Controls.Add(label36);
             panel28.Controls.Add(volume);
-            panel28.Location = new Point(2, 378);
+            panel28.Location = new Point(2, 357);
             panel28.Name = "panel28";
             panel28.Size = new Size(470, 23);
             panel28.TabIndex = 23;
@@ -446,7 +441,7 @@
             panel27.Controls.Add(shirtsv);
             panel27.Controls.Add(label35);
             panel27.Controls.Add(shirts);
-            panel27.Location = new Point(1, 356);
+            panel27.Location = new Point(1, 335);
             panel27.Name = "panel27";
             panel27.Size = new Size(470, 23);
             panel27.TabIndex = 22;
@@ -579,7 +574,7 @@
             panel5.Controls.Add(panel24);
             panel5.Controls.Add(label32);
             panel5.Controls.Add(draw);
-            panel5.Location = new Point(0, 451);
+            panel5.Location = new Point(0, 422);
             panel5.Name = "panel5";
             panel5.Size = new Size(470, 23);
             panel5.TabIndex = 19;
@@ -655,7 +650,7 @@
             panel23.Controls.Add(pokrukv);
             panel23.Controls.Add(label30);
             panel23.Controls.Add(pokruk);
-            panel23.Location = new Point(1, 334);
+            panel23.Location = new Point(1, 313);
             panel23.Name = "panel23";
             panel23.Size = new Size(470, 23);
             panel23.TabIndex = 21;
@@ -698,7 +693,7 @@
             panel22.BackColor = Color.FromArgb(32, 32, 32);
             panel22.Controls.Add(label28);
             panel22.Controls.Add(noleaves);
-            panel22.Location = new Point(0, 312);
+            panel22.Location = new Point(0, 291);
             panel22.Name = "panel22";
             panel22.Size = new Size(470, 23);
             panel22.TabIndex = 20;
@@ -730,7 +725,7 @@
             panel21.BackColor = Color.FromArgb(32, 32, 32);
             panel21.Controls.Add(label29);
             panel21.Controls.Add(bans);
-            panel21.Location = new Point(0, 290);
+            panel21.Location = new Point(0, 269);
             panel21.Name = "panel21";
             panel21.Size = new Size(470, 23);
             panel21.TabIndex = 19;
@@ -764,7 +759,7 @@
             panel8.Controls.Add(panel9);
             panel8.Controls.Add(label16);
             panel8.Controls.Add(sodium);
-            panel8.Location = new Point(0, 495);
+            panel8.Location = new Point(0, 466);
             panel8.Name = "panel8";
             panel8.Size = new Size(470, 23);
             panel8.TabIndex = 16;
@@ -840,7 +835,7 @@
             panel17.Controls.Add(panel18);
             panel17.Controls.Add(label25);
             panel17.Controls.Add(ue);
-            panel17.Location = new Point(0, 539);
+            panel17.Location = new Point(0, 510);
             panel17.Name = "panel17";
             panel17.Size = new Size(470, 23);
             panel17.TabIndex = 18;
@@ -906,7 +901,7 @@
             panel19.Controls.Add(panel20);
             panel19.Controls.Add(label27);
             panel19.Controls.Add(casting);
-            panel19.Location = new Point(0, 561);
+            panel19.Location = new Point(0, 532);
             panel19.Name = "panel19";
             panel19.Size = new Size(470, 23);
             panel19.TabIndex = 19;
@@ -983,7 +978,7 @@
             panel15.Controls.Add(panel16);
             panel15.Controls.Add(label23);
             panel15.Controls.Add(media);
-            panel15.Location = new Point(0, 517);
+            panel15.Location = new Point(0, 488);
             panel15.Name = "panel15";
             panel15.Size = new Size(470, 23);
             panel15.TabIndex = 17;
@@ -1059,7 +1054,7 @@
             panel14.Controls.Add(hzv);
             panel14.Controls.Add(label21);
             panel14.Controls.Add(forhz);
-            panel14.Location = new Point(0, 268);
+            panel14.Location = new Point(0, 247);
             panel14.Name = "panel14";
             panel14.Size = new Size(470, 23);
             panel14.TabIndex = 18;
@@ -1103,7 +1098,7 @@
             panel13.Controls.Add(cosmetxv);
             panel13.Controls.Add(label20);
             panel13.Controls.Add(cosm);
-            panel13.Location = new Point(0, 246);
+            panel13.Location = new Point(0, 225);
             panel13.Name = "panel13";
             panel13.Size = new Size(470, 23);
             panel13.TabIndex = 17;
@@ -1147,7 +1142,7 @@
             panel12.Controls.Add(predv);
             panel12.Controls.Add(label19);
             panel12.Controls.Add(forpreds);
-            panel12.Location = new Point(0, 224);
+            panel12.Location = new Point(0, 203);
             panel12.Name = "panel12";
             panel12.Size = new Size(470, 23);
             panel12.TabIndex = 16;
@@ -1184,38 +1179,6 @@
             forpreds.TabIndex = 9;
             forpreds.Text = "ForeverPreds";
             forpreds.UseVisualStyleBackColor = true;
-            // 
-            // panel11
-            // 
-            panel11.BackColor = Color.FromArgb(32, 32, 32);
-            panel11.Controls.Add(label18);
-            panel11.Controls.Add(flick);
-            panel11.Location = new Point(0, 202);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(470, 23);
-            panel11.TabIndex = 15;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.BackColor = Color.Transparent;
-            label18.ForeColor = Color.White;
-            label18.Location = new Point(281, 4);
-            label18.Name = "label18";
-            label18.Size = new Size(58, 15);
-            label18.TabIndex = 8;
-            label18.Text = "Unknown";
-            // 
-            // flick
-            // 
-            flick.AutoSize = true;
-            flick.ForeColor = Color.White;
-            flick.Location = new Point(3, 3);
-            flick.Name = "flick";
-            flick.Size = new Size(253, 19);
-            flick.TabIndex = 9;
-            flick.Text = "Unknowns DC Flick Mod (F1 TO OPEN GUI)";
-            flick.UseVisualStyleBackColor = true;
             // 
             // panel10
             // 
@@ -1268,7 +1231,7 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(label14);
             panel6.Controls.Add(walksim);
-            panel6.Location = new Point(0, 473);
+            panel6.Location = new Point(0, 444);
             panel6.Name = "panel6";
             panel6.Size = new Size(470, 23);
             panel6.TabIndex = 14;
@@ -1343,7 +1306,7 @@
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.ForeColor = Color.White;
-            label12.Location = new Point(0, 412);
+            label12.Location = new Point(0, 383);
             label12.Name = "label12";
             label12.Size = new Size(38, 15);
             label12.TabIndex = 15;
@@ -1354,7 +1317,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.ForeColor = Color.White;
-            label11.Location = new Point(3, 137);
+            label11.Location = new Point(0, 139);
             label11.Name = "label11";
             label11.Size = new Size(63, 15);
             label11.TabIndex = 14;
@@ -1409,7 +1372,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.ForeColor = Color.White;
-            label8.Location = new Point(3, 70);
+            label8.Location = new Point(0, 71);
             label8.Name = "label8";
             label8.Size = new Size(74, 15);
             label8.TabIndex = 12;
@@ -1744,8 +1707,6 @@
             panel13.PerformLayout();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             panel6.ResumeLayout(false);
@@ -1806,9 +1767,6 @@
         private Panel panel10;
         private Label label17;
         private CheckBox toomuchinfo;
-        private Panel panel11;
-        private Label label18;
-        private CheckBox flick;
         private Panel panel12;
         private Label label19;
         private CheckBox forpreds;
