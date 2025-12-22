@@ -157,6 +157,13 @@
             version = new Label();
             changelocation = new Button();
             folders = new CheckBox();
+            panel11 = new Panel();
+            panel33 = new Panel();
+            label18 = new Label();
+            checkBox9 = new CheckBox();
+            label39 = new Label();
+            infolog = new CheckBox();
+            infologv = new Label();
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
@@ -191,6 +198,8 @@
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             credits.SuspendLayout();
+            panel11.SuspendLayout();
+            panel33.SuspendLayout();
             SuspendLayout();
             // 
             // control
@@ -218,6 +227,7 @@
             // 
             panel2.AutoScroll = true;
             panel2.AutoScrollMargin = new Size(0, 100);
+            panel2.Controls.Add(panel11);
             panel2.Controls.Add(panel31);
             panel2.Controls.Add(panel29);
             panel2.Controls.Add(panel28);
@@ -1628,6 +1638,83 @@
             folders.UseVisualStyleBackColor = true;
             folders.CheckedChanged += folders_CheckedChanged;
             // 
+            // panel11
+            // 
+            panel11.BackColor = Color.FromArgb(32, 32, 32);
+            panel11.Controls.Add(infologv);
+            panel11.Controls.Add(panel33);
+            panel11.Controls.Add(label39);
+            panel11.Controls.Add(infolog);
+            panel11.Location = new Point(0, 576);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(470, 23);
+            panel11.TabIndex = 23;
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.FromArgb(32, 32, 32);
+            panel33.Controls.Add(label18);
+            panel33.Controls.Add(checkBox9);
+            panel33.Location = new Point(3, 22);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(480, 23);
+            panel33.TabIndex = 15;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = Color.Transparent;
+            label18.ForeColor = Color.White;
+            label18.Location = new Point(281, 4);
+            label18.Name = "label18";
+            label18.Size = new Size(128, 15);
+            label18.TabIndex = 8;
+            label18.Text = "ShibaGT (Original Kyle)";
+            // 
+            // checkBox9
+            // 
+            checkBox9.AutoSize = true;
+            checkBox9.ForeColor = Color.White;
+            checkBox9.Location = new Point(3, 3);
+            checkBox9.Name = "checkBox9";
+            checkBox9.Size = new Size(127, 19);
+            checkBox9.TabIndex = 9;
+            checkBox9.Text = "WalkSim-NonUtilla";
+            checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.BackColor = Color.Transparent;
+            label39.ForeColor = Color.White;
+            label39.Location = new Point(281, 4);
+            label39.Name = "label39";
+            label39.Size = new Size(50, 15);
+            label39.TabIndex = 8;
+            label39.Text = "Cheemz";
+            // 
+            // infolog
+            // 
+            infolog.AutoSize = true;
+            infolog.ForeColor = Color.White;
+            infolog.Location = new Point(3, 3);
+            infolog.Name = "infolog";
+            infolog.Size = new Size(124, 19);
+            infolog.TabIndex = 9;
+            infolog.Text = "Gorilla Info Logger";
+            infolog.UseVisualStyleBackColor = true;
+            // 
+            // infologv
+            // 
+            infologv.AutoSize = true;
+            infologv.BackColor = Color.Transparent;
+            infologv.ForeColor = Color.White;
+            infologv.Location = new Point(398, 4);
+            infologv.Name = "infologv";
+            infologv.Size = new Size(45, 15);
+            infologv.TabIndex = 22;
+            infologv.Text = "version";
+            // 
             // Banana
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1721,6 +1808,10 @@
             panel1.PerformLayout();
             credits.ResumeLayout(false);
             credits.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel33.ResumeLayout(false);
+            panel33.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1842,7 +1933,7 @@
         private Label label36;
         private CheckBox volume;
         private Panel panel29;
-        private Label label10;
+        private Label infologv;
         private Panel panel30;
         private Label label37;
         private CheckBox checkBox7;
@@ -1856,5 +1947,11 @@
         private CheckBox checkBox8;
         private Label label41;
         private CheckBox whodis;
+        private Panel panel11;
+        private Panel panel33;
+        private Label label18;
+        private CheckBox checkBox9;
+        private Label label39;
+        private CheckBox infolog;
     }
 }

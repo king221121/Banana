@@ -1,62 +1,105 @@
 using Microsoft.Win32;
 using System.Diagnostics;
-using System.Drawing.Drawing2D;
 using System.IO.Compression;
 using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 
 namespace Banana
 {
     public partial class Banana : Form
     {
+        public static string BaseUrl { get; } = "https://raw.githubusercontent.com/ShibaGT/Banana/main/";
+
+        private string _gtagLocation = DetectGorillaTagPath();
+        private string _bananaDir;
+        private readonly string _currentVersion = "1.1.6";
+        string githubVersion;
+
+        private static readonly HttpClient s_httpClient = new HttpClient();
+
         public Banana()
         {
             InitializeComponent();
+
+            try
+            {
+                s_httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Banana/1.0");
+            }
+            catch { }
+
+            if (_gtagLocation is null or "Not installed" or "Steam not found")
+            {
+                MessageBox.Show("Gorilla Tag installation not found. Please select the Gorilla Tag folder manually.");
+                _gtagLocation = "";
+            }
+            else
+            {
+                _bananaDir = Path.Combine(_gtagLocation, "Gorilla Tag_Data", "Banana");
+                Directory.CreateDirectory(_bananaDir);
+            }
         }
 
-        //vars and shit rahh
-        public static string baseUrl = "https://raw.githubusercontent.com/ShibaGT/Banana/main/";
-
-        static string gtaglocation = getgtpath();
-        string bananaDir = Path.Combine(gtaglocation, "Gorilla Tag_Data", "Banana");
-        string currentVersion = "1.1.55";
-        static string getgtpath() //YES this is chatgpt YES im lazy YES the rest is coded by me fuck OFF!
+        private static string DetectGorillaTagPath()
         {
-            string steam = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")?.GetValue("SteamPath")?.ToString().Replace("/", "\\");
-            if (steam == null) return "Steam not found";
+            try
+            {
+                var steamKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam");
+                var steamPathObj = steamKey?.GetValue("SteamPath");
+                if (steamPathObj is not string steamPath) return "Steam not found";
 
-            string vdf = File.ReadAllText(Path.Combine(steam, "steamapps", "libraryfolders.vdf"));
-            var libs = Regex.Matches(vdf, "\"path\"\\s*\"(.*?)\"");
+                steamPath = steamPath.Replace("/", "\\");
+                var vdfPath = Path.Combine(steamPath, "steamapps", "libraryfolders.vdf");
+                if (!File.Exists(vdfPath))
+                {
+                    if (File.Exists(Path.Combine(steamPath, "steamapps", "appmanifest_1533390.acf")))
+                        return Path.Combine(steamPath, "steamapps", "common", "Gorilla Tag");
 
-            foreach (Match m in libs)
-                if (File.Exists(Path.Combine(m.Groups[1].Value.Replace("\\\\", "\\"), "steamapps", "appmanifest_1533390.acf")))
-                    return Path.Combine(m.Groups[1].Value, "steamapps", "common", "Gorilla Tag");
+                    return "Not installed";
+                }
 
-            if (File.Exists(Path.Combine(steam, "steamapps", "appmanifest_1533390.acf")))
-                return Path.Combine(steam, "steamapps", "common", "Gorilla Tag");
+                var vdf = File.ReadAllText(vdfPath);
+                var libs = Regex.Matches(vdf, "\"path\"\\s*\"(.*?)\"");
+                foreach (Match m in libs)
+                {
+                    var candidate = m.Groups[1].Value.Replace("\\\\", "\\");
+                    var manifest = Path.Combine(candidate, "steamapps", "appmanifest_1533390.acf");
+                    if (File.Exists(manifest))
+                        return Path.Combine(candidate, "steamapps", "common", "Gorilla Tag");
+                }
 
-            return "Not installed";
+                if (File.Exists(Path.Combine(steamPath, "steamapps", "appmanifest_1533390.acf")))
+                    return Path.Combine(steamPath, "steamapps", "common", "Gorilla Tag");
+
+                return "Not installed";
+            }
+            catch
+            {
+                return "Not installed";
+            }
         }
 
-        WebClient w = new WebClient();
-
-        string githubDownload;
-        string githubVersion;
-
-        private async Task GetDownloadFromGithub(string repo)
+        private async Task<string?> GetDownloadFromGithub(string repo)
         {
-            //iiDk-the-actual/iis.Stupid.Menu example dingus
-            string url = $"https://api.github.com/repos/{repo}/releases/latest";
-            using HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.UserAgent.ParseAdd("CSharpApp");
-            string response = await client.GetStringAsync(url);
-            Newtonsoft.Json.Linq.JObject release = Newtonsoft.Json.Linq.JObject.Parse(response);
-            githubDownload = release["assets"][0]["browser_download_url"]?.ToString() ?? "(no download)";
+            try
+            {
+                var url = $"https://api.github.com/repos/{repo}/releases/latest";
+                using var req = new HttpRequestMessage(HttpMethod.Get, url);
+                req.Headers.UserAgent.ParseAdd("BananaApp/1.0");
+                using var resp = await s_httpClient.SendAsync(req);
+                resp.EnsureSuccessStatusCode();
+                var body = await resp.Content.ReadAsStringAsync();
+                var release = Newtonsoft.Json.Linq.JObject.Parse(body);
+                return release["assets"]?[0]?["browser_download_url"]?.ToString();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private async Task GetVersionFromGithub(string repo)
         {
-            //iiDk-the-actual/iis.Stupid.Menu example dingus
             string url = $"https://api.github.com/repos/{repo}/releases/latest";
             using HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.UserAgent.ParseAdd("CSharpApp");
@@ -65,104 +108,132 @@ namespace Banana
             githubVersion = release["tag_name"]?.ToString() ?? "(no download)";
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            string versionPath = Path.Combine(bananaDir, "banana_version.txt");
-            version.Text = "Banana Version: " + currentVersion;
-            File.WriteAllText(versionPath, currentVersion);
+            try
+            {
+                var versionPath = Path.Combine(_bananaDir, "banana_version.txt");
+                version.Text = "Banana Version: " + _currentVersion;
+                File.WriteAllText(versionPath, _currentVersion);
 
-            label1.Text = gtaglocation;
-            status.Text = "init path";
+                label1.Text = _gtagLocation;
+                status.Text = "init path";
 
-            updateSettings();
-            UpdateVersions();
+                UpdateSettings();
+                UpdateVersions();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Initialization error: {ex.Message}");
+            }
         }
 
         private void game_Click(object sender, EventArgs e)
         {
-            string cleanPath = gtaglocation.Replace(@"\\", @"\");
-            Process.Start("explorer.exe", cleanPath);
+            try
+            {
+                var cleanPath = Path.GetFullPath(_gtagLocation);
+                var psi = new ProcessStartInfo(cleanPath) { UseShellExecute = true };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to open folder: {ex.Message}");
+            }
         }
 
         private void mods_Click(object sender, EventArgs e)
         {
-            string cleanPath = gtaglocation.Replace(@"\\", @"\");
-            Process.Start("explorer.exe", cleanPath + "\\BepInEx\\plugins");
-        }
-
-        public static void bepinexshit()
-        {
-            string downloadUrl = "https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.4/BepInEx_win_x64_5.4.23.4.zip";
-            string downloadPath = Path.Combine(Path.GetTempPath(), "BepInEx_win_x64_5.4.23.2.zip");
-            string extractTempPath = Path.Combine(Path.GetTempPath(), "BepInExExtract");
-            string targetPath = gtaglocation.Replace(@"\\", @"\");
             try
             {
-                using (WebClient client = new WebClient())
+                var plugins = Path.Combine(_gtagLocation, "BepInEx", "plugins");
+                var psi = new ProcessStartInfo(plugins) { UseShellExecute = true };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to open mods folder: {ex.Message}");
+            }
+        }
+
+        public static async Task InstallBepInEx(string installTarget, string baseUrl)
+        {
+            const string downloadUrl = "https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.4/BepInEx_win_x64_5.4.23.4.zip";
+            var tempZip = Path.Combine(Path.GetTempPath(), "BepInEx_win_x64_5.4.23.4.zip");
+            var extractTemp = Path.Combine(Path.GetTempPath(), "BepInExExtract");
+
+            try
+            {
+                using var http = new HttpClient();
+                using var resp = await http.GetAsync(downloadUrl).ConfigureAwait(false);
+                resp.EnsureSuccessStatusCode();
+
+                await using (var fs = new FileStream(tempZip, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
-                    client.DownloadFile(downloadUrl, downloadPath);
+                    await resp.Content.CopyToAsync(fs).ConfigureAwait(false);
                 }
 
-                if (Directory.Exists(extractTempPath))
-                    Directory.Delete(extractTempPath, true);
+                if (Directory.Exists(extractTemp))
+                    Directory.Delete(extractTemp, true);
 
-                ZipFile.ExtractToDirectory(downloadPath, extractTempPath);
+                ZipFile.ExtractToDirectory(tempZip, extractTemp);
 
-                CopyFilesRecursively(new DirectoryInfo(extractTempPath), new DirectoryInfo(targetPath));
+                CopyFilesRecursively(new DirectoryInfo(extractTemp), new DirectoryInfo(installTarget));
 
-                File.Delete(downloadPath);
-                Directory.Delete(extractTempPath, true);
+                File.Delete(tempZip);
+                Directory.Delete(extractTemp, true);
+
+                Directory.CreateDirectory(Path.Combine(installTarget, "BepInEx", "plugins"));
+                Directory.CreateDirectory(Path.Combine(installTarget, "BepInEx", "config"));
+
+                using var client2 = new HttpClient();
+                var configText = await client2.GetStringAsync($"{baseUrl}config.txt").ConfigureAwait(false);
+                File.WriteAllText(Path.Combine(installTarget, "BepInEx", "config", "BepInEx.cfg"), configText);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
-            try
-            {
-                Directory.CreateDirectory(targetPath + "\\BepInEx\\plugins");
-                Directory.CreateDirectory(targetPath + "\\BepInEx\\config");
-                using (WebClient client = new WebClient())
-                    File.WriteAllText(targetPath + "\\BepInEx\\config\\BepInEx.cfg", client.DownloadString($"{baseUrl}config.txt"));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while creating the plugins directory or writing the config file: " + ex.Message);
+                throw new InvalidOperationException("Failed to install BepInEx", ex);
             }
         }
 
-
-        public void ueZip()
+        public async Task InstallUnityFix()
         {
-            status.Text = "ue";
-            string downloadUrl = $"{baseUrl}Banana/ModFiles/UnityFixV3_LTS.zip";
-            string downloadPath = Path.Combine(Path.GetTempPath(), "UnityFixV3_LTS.zip");
-            string extractTempPath = Path.Combine(Path.GetTempPath(), "UEExtract");
-            string targetPath = gtaglocation.Replace(@"\\", @"\") + "\\BepInEx\\plugins";
+            status.InvokeIfRequired(() => status.Text = "ue");
+            var downloadUrl = $"{BaseUrl}Banana/ModFiles/UnityFixV3_LTS.zip";
+            var tempZip = Path.Combine(Path.GetTempPath(), "UnityFixV3_LTS.zip");
+            var extractTemp = Path.Combine(Path.GetTempPath(), "UEExtract");
+            var targetPath = Path.Combine(_gtagLocation, "BepInEx", "plugins");
+
             try
             {
-                using (WebClient client = new WebClient())
+                using var resp = await s_httpClient.GetAsync(downloadUrl).ConfigureAwait(false);
+                resp.EnsureSuccessStatusCode();
+
+                await using (var fs = new FileStream(tempZip, FileMode.Create))
                 {
-                    client.DownloadFile(downloadUrl, downloadPath);
+                    await resp.Content.CopyToAsync(fs).ConfigureAwait(false);
                 }
 
-                if (Directory.Exists(extractTempPath))
-                    Directory.Delete(extractTempPath, true);
+                if (Directory.Exists(extractTemp))
+                    Directory.Delete(extractTemp, true);
 
-                ZipFile.ExtractToDirectory(downloadPath, extractTempPath);
+                ZipFile.ExtractToDirectory(tempZip, extractTemp);
 
-                CopyFilesRecursively(new DirectoryInfo(extractTempPath), new DirectoryInfo(targetPath));
+                CopyFilesRecursively(new DirectoryInfo(extractTemp), new DirectoryInfo(targetPath));
 
-                File.Delete(downloadPath);
-                Directory.Delete(extractTempPath, true);
+                File.Delete(tempZip);
+                Directory.Delete(extractTemp, true);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show($"An error occurred while installing UnityFix: {ex.Message}");
             }
         }
 
-        private static void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target) //chatgpt too pal
+        private static void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
         {
+            Directory.CreateDirectory(target.FullName);
+
             foreach (var directory in source.GetDirectories())
             {
                 var targetSubDir = target.CreateSubdirectory(directory.Name);
@@ -176,14 +247,24 @@ namespace Banana
             }
         }
 
-        public static void DownloadFromRepo(string mod, string to) =>
-            new WebClient().DownloadFile($"{baseUrl}Banana/ModFiles/{mod}", to);
+        private async Task DownloadFileToPath(string url, string destinationFilePath)
+        {
+            var destDir = Path.GetDirectoryName(destinationFilePath);
+            if (!string.IsNullOrEmpty(destDir))
+                Directory.CreateDirectory(destDir);
 
-        public (CheckBox checkBox, string repo, string outputFile, string statusText, Label versionlabel)[] githubMods
+            using var resp = await s_httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+            resp.EnsureSuccessStatusCode();
+            await using var contentStream = await resp.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            await using var fileStream = new FileStream(destinationFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            await contentStream.CopyToAsync(fileStream).ConfigureAwait(false);
+        }
+
+        public (CheckBox checkBox, string repo, string outputFile, string statusText, Label versionlabel)[] GithubMods
         {
             get
             {
-                return new (CheckBox checkBox, string repo, string outputFile, string statusText, Label versionlabel)[]
+                return new (CheckBox, string, string, string, Label)[]
                 {
                        (utilla, "iiDk-the-actual/Utilla-Public", "Utilla.dll", "utilla", utillav),
                        (iidk, "iiDk-the-actual/iis.Stupid.Menu", "iis Stupid Menu.dll", "iidk menu sigma", iiv),
@@ -200,15 +281,16 @@ namespace Banana
                        (zlothy, "ZlothY29IQ/Zlothy-Nametag", "ZlothYNametag.dll", "zlothy", zlothyv),
                        (shirts, "developer9998/GorillaShirts", "GorillaShirts.dll", "shirts", shirtsv),
                        (volume, "ZlothY29IQ/GorillaVolumeControls", "GorillaVolumeControls.dll", "volumecontrols", volumev),
+                       (infolog, "CheemsPookieAlt/Gorilla-Info-Logger", "Gorilla.Info.Logger.dll", "info logger", infologv),
                 };
             }
         }
 
-        public (CheckBox checkBox, string fileName, string statusText)[] discordMods
+        public (CheckBox checkBox, string fileName, string statusText)[] DiscordMods
         {
             get
             {
-                return new (CheckBox checkBox, string fileName, string statusText)[]
+                return new (CheckBox, string, string)[]
                 {
                     (bans, "bannedservers.dll", "banservers"),
                     (spectral, "Spectral Menu.dll", "spectral"),
@@ -222,145 +304,219 @@ namespace Banana
         {
             try
             {
-                foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in githubMods)
+                foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in GithubMods)
                 {
                     await GetVersionFromGithub(repo);
-                    versionlabel.Text = githubVersion;
+                    versionlabel.InvokeIfRequired(() => versionlabel.Text = githubVersion);
                 }
             }
             catch (Exception e)
-            { MessageBox.Show("An error occurred while fetching mod versions. Error: " + e); }
+            {
+                MessageBox.Show("An error occurred while fetching mod versions.");
+                foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in GithubMods)
+                {
+                    if (versionlabel.Text == "version")
+                        versionlabel.Text = "(n/a)";
+                }
+            }
         }
 
         private async void download_Click(object sender, EventArgs e)
         {
-            string pluginsloc;
-            if (Directory.Exists(Path.Combine(gtaglocation, "BepInEx")))
-                pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"), "BepInEx", "plugins\\");
-            else
-                pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"));
+            var pluginsLoc = Directory.Exists(Path.Combine(_gtagLocation, "BepInEx"))
+                ? Path.Combine(_gtagLocation, "BepInEx", "plugins")
+                : _gtagLocation; 
 
             try
             {
                 if (bepinex.Checked)
                 {
-                    bepinexshit();
-                    status.Text = "bepinex";
-                    pluginsloc = Path.Combine(gtaglocation.Replace(@"\\", @"\"), "BepInEx", "plugins\\");
+                    await InstallBepInEx(_gtagLocation, BaseUrl).ConfigureAwait(false);
+                    status.InvokeIfRequired(() => status.Text = "bepinex");
+                    pluginsLoc = Path.Combine(_gtagLocation, "BepInEx", "plugins");
                 }
 
                 if (ue.Checked)
-                    ueZip();
+                    await InstallUnityFix().ConfigureAwait(false);
 
-                foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in githubMods)
-                {   
-                    if (checkBox.Checked)
+                foreach (var (checkBox, repo, outputFile, statusText, versionlabel) in GithubMods)
+                {
+                    if (!checkBox.Checked) continue;
+
+                    var outputFileFinal = outputFile;
+                    if (createFolders)
                     {
-                        string outputFileFinal = outputFile;
-                        if (createFolders)
-                        {
-                            string modFolder = Path.Combine(pluginsloc, Path.GetFileNameWithoutExtension(outputFile));
-                            if (!Directory.Exists(modFolder))
-                                Directory.CreateDirectory(modFolder);
-                            outputFileFinal = Path.Combine(modFolder, outputFile);
-                        }
-
-                        status.Text = statusText;
-                        await GetDownloadFromGithub(repo);
-                        w.DownloadFile(githubDownload, Path.Combine(pluginsloc, outputFileFinal));
+                        var modFolder = Path.Combine(pluginsLoc, Path.GetFileNameWithoutExtension(outputFile));
+                        Directory.CreateDirectory(modFolder);
+                        outputFileFinal = Path.Combine(modFolder, outputFile);
                     }
+                    status.InvokeIfRequired(() => status.Text = statusText);
+
+                    var downloadUrl = await GetDownloadFromGithub(repo).ConfigureAwait(false);
+                    if (string.IsNullOrEmpty(downloadUrl))
+                        throw new InvalidOperationException($"No download URL for {repo}");
+
+                    await DownloadFileToPath(downloadUrl, Path.Combine(pluginsLoc, outputFileFinal)).ConfigureAwait(false);
                 }
 
-                foreach (var (checkBox, fileName, statusText) in discordMods)
+                foreach (var (checkBox, fileName, statusText) in DiscordMods)
                 {
-                    if (checkBox.Checked)
+                    if (!checkBox.Checked) continue;
+
+                    var outputFileFinal = fileName;
+                    if (createFolders)
                     {
-                        string outputFileFinal = fileName;
-                        if (createFolders)
-                        {
-                            string modFolder = Path.Combine(pluginsloc, Path.GetFileNameWithoutExtension(fileName));
-                            if (!Directory.Exists(modFolder))
-                                Directory.CreateDirectory(modFolder);
-                            outputFileFinal = Path.Combine(modFolder, fileName);
-                        }
-                        status.Text = statusText;
-                        DownloadFromRepo(fileName, Path.Combine(pluginsloc, outputFileFinal));
+                        var modFolder = Path.Combine(pluginsLoc, Path.GetFileNameWithoutExtension(fileName));
+                        Directory.CreateDirectory(modFolder);
+                        outputFileFinal = Path.Combine(modFolder, fileName);
                     }
+
+                    status.InvokeIfRequired(() => status.Text = statusText);
+                    var remoteUrl = $"{BaseUrl}Banana/ModFiles/{Uri.EscapeUriString(fileName)}";
+                    await DownloadFileToPath(remoteUrl, Path.Combine(pluginsLoc, outputFileFinal)).ConfigureAwait(false);
                 }
 
                 MessageBox.Show("Finished installing mods!");
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while installing mods. Please check your Gorilla Tag directory and try again.");
+                MessageBox.Show("An error occurred while installing mods. Please check your Gorilla Tag directory and try again.\n\n" + ex.Message);
+            }
+            finally
+            {
+                status.InvokeIfRequired(() => status.Text = "idle");
             }
         }
-
 
         private void disableenable_Click(object sender, EventArgs e)
         {
-            if (disableenable.BackColor == Color.Red)
-                System.IO.File.Move($"{gtaglocation}\\winhttp.dll", $"{gtaglocation}\\winhttp.d");
-            else
-                System.IO.File.Move($"{gtaglocation}\\winhttp.d", $"{gtaglocation}\\winhttp.dll");
+            try
+            {
+                var dllPath = Path.Combine(_gtagLocation, "winhttp.dll");
+                var dPath = Path.Combine(_gtagLocation, "winhttp.d");
 
-            updateSettings();
+                if (File.Exists(dllPath))
+                {
+                    File.Move(dllPath, dPath, overwrite: true);
+                }
+                else if (File.Exists(dPath))
+                {
+                    File.Move(dPath, dllPath, overwrite: true);
+                }
+
+                UpdateSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error toggling mod enable state: {ex.Message}");
+            }
         }
 
-        private void updateSettings()
+        private void UpdateSettings()
         {
-            if (!File.Exists(gtaglocation + "\\winhttp.d") && !File.Exists(gtaglocation + "\\winhttp.dll"))
-            { disableenable.Visible = false; return; }
-            if (File.Exists(gtaglocation + "\\winhttp.dll"))
+            try
             {
-                disableenable.BackColor = Color.Red;
-                disableenable.Text = "Disable Mods";
-            }
-            else
-            {
-                disableenable.BackColor = Color.Green;
-                disableenable.Text = "Enable Mods";
-            }
+                var dllPath = Path.Combine(_gtagLocation, "winhttp.dll");
+                var dPath = Path.Combine(_gtagLocation, "winhttp.d");
 
-            if (File.Exists(bananaDir + "\\create_folders.txt"))
-                folders.Checked = bool.Parse(File.ReadAllText(bananaDir + "\\create_folders.txt"));
-            else
-                folders.Checked = false;
+                if (!File.Exists(dPath) && !File.Exists(dllPath))
+                {
+                    disableenable.Visible = false;
+                }
+                else
+                {
+                    disableenable.Visible = true;
+                    if (File.Exists(dllPath))
+                    {
+                        disableenable.BackColor = Color.Red;
+                        disableenable.Text = "Disable Mods";
+                    }
+                    else
+                    {
+                        disableenable.BackColor = Color.Green;
+                        disableenable.Text = "Enable Mods";
+                    }
+                }
+
+                var createFoldersFile = Path.Combine(_bananaDir, "create_folders.txt");
+                if (File.Exists(createFoldersFile))
+                    folders.Checked = bool.TryParse(File.ReadAllText(createFoldersFile), out var val) && val;
+                else
+                    folders.Checked = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating settings: {ex.Message}");
+            }
         }
 
         private void discord_Click(object sender, EventArgs e)
         {
-            var ps = new ProcessStartInfo("https://discord.gg/NtgqZkwuPy")
+            try
             {
-                UseShellExecute = true,
-                Verb = "open"
-            };
-            Process.Start(ps);
+                var ps = new ProcessStartInfo("https://discord.gg/NtgqZkwuPy")
+                {
+                    UseShellExecute = true
+                };
+                Process.Start(ps);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to open link: {ex.Message}");
+            }
         }
 
         private void changelocation_Click(object sender, EventArgs e)
         {
-            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            using var folderDialog = new FolderBrowserDialog
             {
-                folderDialog.Description = "Select your Gorilla Tag directory.";
-                folderDialog.ShowNewFolderButton = true;
+                Description = "Select your Gorilla Tag directory.",
+                ShowNewFolderButton = true
+            };
 
-                if (folderDialog.ShowDialog() == DialogResult.OK)
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
-                    string selectedPath = folderDialog.SelectedPath;
+                    var selectedPath = folderDialog.SelectedPath;
                     MessageBox.Show("Selected Folder: " + selectedPath);
 
                     label1.Text = selectedPath;
-                    gtaglocation = selectedPath;
+                    _gtagLocation = selectedPath;
+                    _bananaDir = Path.Combine(_gtagLocation, "Gorilla Tag_Data", "Banana");
+                    Directory.CreateDirectory(_bananaDir);
+                    UpdateSettings();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error changing Gorilla Tag location: {ex.Message}");
                 }
             }
         }
 
-        bool createFolders;
+        private bool createFolders;
         private void folders_CheckedChanged(object sender, EventArgs e)
         {
             createFolders = folders.Checked;
-            File.WriteAllText(Path.Combine(bananaDir, "create_folders.txt"), folders.Checked.ToString());
+            try
+            {
+                Directory.CreateDirectory(_bananaDir);
+                File.WriteAllText(Path.Combine(_bananaDir, "create_folders.txt"), folders.Checked.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to persist folder setting: {ex.Message}");
+            }
+        }
+    }
+    internal static class ControlExtensions
+    {
+        public static void InvokeIfRequired(this Control control, Action action)
+        {
+            if (control.IsHandleCreated && control.InvokeRequired)
+                control.Invoke(action);
+            else
+                action();
         }
     }
 }
