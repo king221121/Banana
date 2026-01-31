@@ -13,7 +13,7 @@ namespace Banana
 
         private string _gtagLocation = DetectGorillaTagPath();
         private string _bananaDir;
-        private readonly string _currentVersion = "1.1.6";
+        private readonly string _currentVersion = "1.1.7";
         string githubVersion;
 
         private static readonly HttpClient s_httpClient = new HttpClient();
@@ -268,7 +268,7 @@ namespace Banana
                 {
                        (utilla, "iiDk-the-actual/Utilla-Public", "Utilla.dll", "utilla", utillav),
                        (iidk, "iiDk-the-actual/iis.Stupid.Menu", "iis Stupid Menu.dll", "iidk menu sigma", iiv),
-                       (sodium, "TAGMONKE/Sodium", "Sodium.dll", "sodium", sodiumv),
+                       (libre, "iiDk-the-actual/LibrePad", "LibrePad.dll", "libre", librev),
                        (forpreds, "iiDk-the-actual/ForeverPreds", "ForeverPreds.dll", "forever preds", predv),
                        (forhz, "iiDk-the-actual/ForeverHz", "ForeverHz.dll", "hz mod", hzv),
                        (cosm, "iiDk-the-actual/ForeverCosmetx", "ForeverCosmetx.dll", "cosmetx", cosmetxv),
@@ -282,6 +282,7 @@ namespace Banana
                        (shirts, "developer9998/GorillaShirts", "GorillaShirts.dll", "shirts", shirtsv),
                        (volume, "ZlothY29IQ/GorillaVolumeControls", "GorillaVolumeControls.dll", "volumecontrols", volumev),
                        (infolog, "CheemsPookieAlt/Gorilla-Info-Logger", "Gorilla.Info.Logger.dll", "info logger", infologv),
+                       (whodis, "ShibaGT/WhoDis", "WhoDis.dll", "whodis", whodisv),
                 };
             }
         }

@@ -32,6 +32,13 @@
             control = new TabControl();
             cheats = new TabPage();
             panel2 = new Panel();
+            panel11 = new Panel();
+            infologv = new Label();
+            panel33 = new Panel();
+            label18 = new Label();
+            checkBox9 = new CheckBox();
+            label39 = new Label();
+            infolog = new CheckBox();
             panel31 = new Panel();
             whodisv = new Label();
             panel32 = new Panel();
@@ -79,12 +86,12 @@
             label29 = new Label();
             bans = new CheckBox();
             panel8 = new Panel();
-            sodiumv = new Label();
+            librev = new Label();
             panel9 = new Panel();
             label15 = new Label();
             checkBox3 = new CheckBox();
             label16 = new Label();
-            sodium = new CheckBox();
+            libre = new CheckBox();
             panel17 = new Panel();
             panel18 = new Panel();
             label24 = new Label();
@@ -157,16 +164,11 @@
             version = new Label();
             changelocation = new Button();
             folders = new CheckBox();
-            panel11 = new Panel();
-            panel33 = new Panel();
-            label18 = new Label();
-            checkBox9 = new CheckBox();
-            label39 = new Label();
-            infolog = new CheckBox();
-            infologv = new Label();
             control.SuspendLayout();
             cheats.SuspendLayout();
             panel2.SuspendLayout();
+            panel11.SuspendLayout();
+            panel33.SuspendLayout();
             panel31.SuspendLayout();
             panel32.SuspendLayout();
             panel29.SuspendLayout();
@@ -198,8 +200,6 @@
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             credits.SuspendLayout();
-            panel11.SuspendLayout();
-            panel33.SuspendLayout();
             SuspendLayout();
             // 
             // control
@@ -258,6 +258,83 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(490, 231);
             panel2.TabIndex = 11;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.FromArgb(32, 32, 32);
+            panel11.Controls.Add(infologv);
+            panel11.Controls.Add(panel33);
+            panel11.Controls.Add(label39);
+            panel11.Controls.Add(infolog);
+            panel11.Location = new Point(0, 576);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(470, 23);
+            panel11.TabIndex = 23;
+            // 
+            // infologv
+            // 
+            infologv.AutoSize = true;
+            infologv.BackColor = Color.Transparent;
+            infologv.ForeColor = Color.White;
+            infologv.Location = new Point(398, 4);
+            infologv.Name = "infologv";
+            infologv.Size = new Size(45, 15);
+            infologv.TabIndex = 22;
+            infologv.Text = "version";
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.FromArgb(32, 32, 32);
+            panel33.Controls.Add(label18);
+            panel33.Controls.Add(checkBox9);
+            panel33.Location = new Point(3, 22);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(480, 23);
+            panel33.TabIndex = 15;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = Color.Transparent;
+            label18.ForeColor = Color.White;
+            label18.Location = new Point(281, 4);
+            label18.Name = "label18";
+            label18.Size = new Size(128, 15);
+            label18.TabIndex = 8;
+            label18.Text = "ShibaGT (Original Kyle)";
+            // 
+            // checkBox9
+            // 
+            checkBox9.AutoSize = true;
+            checkBox9.ForeColor = Color.White;
+            checkBox9.Location = new Point(3, 3);
+            checkBox9.Name = "checkBox9";
+            checkBox9.Size = new Size(127, 19);
+            checkBox9.TabIndex = 9;
+            checkBox9.Text = "WalkSim-NonUtilla";
+            checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.BackColor = Color.Transparent;
+            label39.ForeColor = Color.White;
+            label39.Location = new Point(281, 4);
+            label39.Name = "label39";
+            label39.Size = new Size(50, 15);
+            label39.TabIndex = 8;
+            label39.Text = "Cheemz";
+            // 
+            // infolog
+            // 
+            infolog.AutoSize = true;
+            infolog.ForeColor = Color.White;
+            infolog.Location = new Point(3, 3);
+            infolog.Name = "infolog";
+            infolog.Size = new Size(124, 19);
+            infolog.TabIndex = 9;
+            infolog.Text = "Gorilla Info Logger";
+            infolog.UseVisualStyleBackColor = true;
             // 
             // panel31
             // 
@@ -765,25 +842,25 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(32, 32, 32);
-            panel8.Controls.Add(sodiumv);
+            panel8.Controls.Add(librev);
             panel8.Controls.Add(panel9);
             panel8.Controls.Add(label16);
-            panel8.Controls.Add(sodium);
+            panel8.Controls.Add(libre);
             panel8.Location = new Point(0, 466);
             panel8.Name = "panel8";
             panel8.Size = new Size(470, 23);
             panel8.TabIndex = 16;
             // 
-            // sodiumv
+            // librev
             // 
-            sodiumv.AutoSize = true;
-            sodiumv.BackColor = Color.Transparent;
-            sodiumv.ForeColor = Color.White;
-            sodiumv.Location = new Point(397, 3);
-            sodiumv.Name = "sodiumv";
-            sodiumv.Size = new Size(45, 15);
-            sodiumv.TabIndex = 19;
-            sodiumv.Text = "version";
+            librev.AutoSize = true;
+            librev.BackColor = Color.Transparent;
+            librev.ForeColor = Color.White;
+            librev.Location = new Point(397, 3);
+            librev.Name = "librev";
+            librev.Size = new Size(45, 15);
+            librev.TabIndex = 19;
+            librev.Text = "version";
             // 
             // panel9
             // 
@@ -824,20 +901,20 @@
             label16.ForeColor = Color.White;
             label16.Location = new Point(281, 4);
             label16.Name = "label16";
-            label16.Size = new Size(91, 15);
+            label16.Size = new Size(27, 15);
             label16.TabIndex = 8;
-            label16.Text = "tagdoesnothing";
+            label16.Text = "iiDk";
             // 
-            // sodium
+            // libre
             // 
-            sodium.AutoSize = true;
-            sodium.ForeColor = Color.White;
-            sodium.Location = new Point(3, 3);
-            sodium.Name = "sodium";
-            sodium.Size = new Size(67, 19);
-            sodium.TabIndex = 9;
-            sodium.Text = "Sodium";
-            sodium.UseVisualStyleBackColor = true;
+            libre.AutoSize = true;
+            libre.ForeColor = Color.White;
+            libre.Location = new Point(3, 3);
+            libre.Name = "libre";
+            libre.Size = new Size(72, 19);
+            libre.TabIndex = 9;
+            libre.Text = "LibrePad";
+            libre.UseVisualStyleBackColor = true;
             // 
             // panel17
             // 
@@ -1638,83 +1715,6 @@
             folders.UseVisualStyleBackColor = true;
             folders.CheckedChanged += folders_CheckedChanged;
             // 
-            // panel11
-            // 
-            panel11.BackColor = Color.FromArgb(32, 32, 32);
-            panel11.Controls.Add(infologv);
-            panel11.Controls.Add(panel33);
-            panel11.Controls.Add(label39);
-            panel11.Controls.Add(infolog);
-            panel11.Location = new Point(0, 576);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(470, 23);
-            panel11.TabIndex = 23;
-            // 
-            // panel33
-            // 
-            panel33.BackColor = Color.FromArgb(32, 32, 32);
-            panel33.Controls.Add(label18);
-            panel33.Controls.Add(checkBox9);
-            panel33.Location = new Point(3, 22);
-            panel33.Name = "panel33";
-            panel33.Size = new Size(480, 23);
-            panel33.TabIndex = 15;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.BackColor = Color.Transparent;
-            label18.ForeColor = Color.White;
-            label18.Location = new Point(281, 4);
-            label18.Name = "label18";
-            label18.Size = new Size(128, 15);
-            label18.TabIndex = 8;
-            label18.Text = "ShibaGT (Original Kyle)";
-            // 
-            // checkBox9
-            // 
-            checkBox9.AutoSize = true;
-            checkBox9.ForeColor = Color.White;
-            checkBox9.Location = new Point(3, 3);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(127, 19);
-            checkBox9.TabIndex = 9;
-            checkBox9.Text = "WalkSim-NonUtilla";
-            checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // label39
-            // 
-            label39.AutoSize = true;
-            label39.BackColor = Color.Transparent;
-            label39.ForeColor = Color.White;
-            label39.Location = new Point(281, 4);
-            label39.Name = "label39";
-            label39.Size = new Size(50, 15);
-            label39.TabIndex = 8;
-            label39.Text = "Cheemz";
-            // 
-            // infolog
-            // 
-            infolog.AutoSize = true;
-            infolog.ForeColor = Color.White;
-            infolog.Location = new Point(3, 3);
-            infolog.Name = "infolog";
-            infolog.Size = new Size(124, 19);
-            infolog.TabIndex = 9;
-            infolog.Text = "Gorilla Info Logger";
-            infolog.UseVisualStyleBackColor = true;
-            // 
-            // infologv
-            // 
-            infologv.AutoSize = true;
-            infologv.BackColor = Color.Transparent;
-            infologv.ForeColor = Color.White;
-            infologv.Location = new Point(398, 4);
-            infologv.Name = "infologv";
-            infologv.Size = new Size(45, 15);
-            infologv.TabIndex = 22;
-            infologv.Text = "version";
-            // 
             // Banana
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1746,6 +1746,10 @@
             cheats.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel33.ResumeLayout(false);
+            panel33.PerformLayout();
             panel31.ResumeLayout(false);
             panel31.PerformLayout();
             panel32.ResumeLayout(false);
@@ -1808,10 +1812,6 @@
             panel1.PerformLayout();
             credits.ResumeLayout(false);
             credits.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel33.ResumeLayout(false);
-            panel33.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1854,7 +1854,7 @@
         private Label label15;
         private CheckBox checkBox3;
         private Label label16;
-        private CheckBox sodium;
+        private CheckBox libre;
         private Panel panel10;
         private Label label17;
         private CheckBox toomuchinfo;
@@ -1887,7 +1887,7 @@
         private Label hzv;
         private Label cosmetxv;
         private Label predv;
-        private Label sodiumv;
+        private Label librev;
         private Label walksimv;
         private Button changelocation;
         private Panel panel19;
