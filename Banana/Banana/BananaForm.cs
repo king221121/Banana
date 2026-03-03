@@ -13,7 +13,7 @@ namespace Banana
 
         private string _gtagLocation = DetectGorillaTagPath();
         private string _bananaDir;
-        private readonly string _currentVersion = "1.1.7";
+        private readonly string _currentVersion = "1.1.8";
         string githubVersion;
 
         private static readonly HttpClient s_httpClient = new HttpClient();
@@ -267,7 +267,7 @@ namespace Banana
                 return new (CheckBox, string, string, string, Label)[]
                 {
                        (utilla, "iiDk-the-actual/Utilla-Public", "Utilla.dll", "utilla", utillav),
-                       (iidk, "iiDk-the-actual/iis.Stupid.Menu", "iis Stupid Menu.dll", "iidk menu sigma", iiv),
+                       (iidk, "Seralyth/Seralyth-Menu", "Seralyth-Menu.dll", "seralyth menu sigma", iiv),
                        (libre, "iiDk-the-actual/LibrePad", "LibrePad.dll", "libre", librev),
                        (forpreds, "iiDk-the-actual/ForeverPreds", "ForeverPreds.dll", "forever preds", predv),
                        (forhz, "iiDk-the-actual/ForeverHz", "ForeverHz.dll", "hz mod", hzv),
@@ -277,7 +277,6 @@ namespace Banana
                        (toomuchinfo, "iiDk-the-actual/TooMuchInfo", "TooMuchInfo.dll", "too much info", toomuchinfov),
                        (walksim, "iiDk-the-actual/WalkSim", "WalkSim.dll", "walksim", walksimv),
                        (draw, "drowsiiii/MonkeDraw-Drawing-Pad", "MonkeDrawing.dll", "draw", drawv),
-                       (casting, "HanSolo1000Falcon/CastingShouldBeFree", "CastingShouldBeFree.dll", "casting", castingv),
                        (zlothy, "ZlothY29IQ/Zlothy-Nametag", "ZlothYNametag.dll", "zlothy", zlothyv),
                        (shirts, "developer9998/GorillaShirts", "GorillaShirts.dll", "shirts", shirtsv),
                        (volume, "ZlothY29IQ/GorillaVolumeControls", "GorillaVolumeControls.dll", "volumecontrols", volumev),
@@ -294,7 +293,6 @@ namespace Banana
                 return new (CheckBox, string, string)[]
                 {
                     (bans, "bannedservers.dll", "banservers"),
-                    (spectral, "Spectral Menu.dll", "spectral"),
                     (noleaves, "No Leaves.dll", "leaves !!!"),
                     (arss, "AutoReportSystem.dll", "ars"),
                 };

@@ -64,10 +64,6 @@
             zlothyv = new Label();
             label34 = new Label();
             zlothy = new CheckBox();
-            panel25 = new Panel();
-            astraversion = new Label();
-            label33 = new Label();
-            spectral = new CheckBox();
             panel5 = new Panel();
             drawv = new Label();
             panel24 = new Panel();
@@ -98,13 +94,6 @@
             checkBox4 = new CheckBox();
             label25 = new Label();
             ue = new CheckBox();
-            panel19 = new Panel();
-            castingv = new Label();
-            panel20 = new Panel();
-            label26 = new Label();
-            checkBox5 = new CheckBox();
-            label27 = new Label();
-            casting = new CheckBox();
             panel15 = new Panel();
             mediav = new Label();
             panel16 = new Panel();
@@ -176,7 +165,6 @@
             panel28.SuspendLayout();
             panel27.SuspendLayout();
             panel26.SuspendLayout();
-            panel25.SuspendLayout();
             panel5.SuspendLayout();
             panel24.SuspendLayout();
             panel23.SuspendLayout();
@@ -186,8 +174,6 @@
             panel9.SuspendLayout();
             panel17.SuspendLayout();
             panel18.SuspendLayout();
-            panel19.SuspendLayout();
-            panel20.SuspendLayout();
             panel15.SuspendLayout();
             panel16.SuspendLayout();
             panel14.SuspendLayout();
@@ -233,14 +219,12 @@
             panel2.Controls.Add(panel28);
             panel2.Controls.Add(panel27);
             panel2.Controls.Add(panel26);
-            panel2.Controls.Add(panel25);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel23);
             panel2.Controls.Add(panel22);
             panel2.Controls.Add(panel21);
             panel2.Controls.Add(panel8);
             panel2.Controls.Add(panel17);
-            panel2.Controls.Add(panel19);
             panel2.Controls.Add(panel15);
             panel2.Controls.Add(panel14);
             panel2.Controls.Add(panel13);
@@ -266,7 +250,7 @@
             panel11.Controls.Add(panel33);
             panel11.Controls.Add(label39);
             panel11.Controls.Add(infolog);
-            panel11.Location = new Point(0, 576);
+            panel11.Location = new Point(0, 555);
             panel11.Name = "panel11";
             panel11.Size = new Size(470, 23);
             panel11.TabIndex = 23;
@@ -419,7 +403,7 @@
             panel29.Controls.Add(panel30);
             panel29.Controls.Add(label38);
             panel29.Controls.Add(arss);
-            panel29.Location = new Point(0, 554);
+            panel29.Location = new Point(0, 533);
             panel29.Name = "panel29";
             panel29.Size = new Size(470, 23);
             panel29.TabIndex = 22;
@@ -609,50 +593,6 @@
             zlothy.TabIndex = 9;
             zlothy.Text = "Zlothy Nametags";
             zlothy.UseVisualStyleBackColor = true;
-            // 
-            // panel25
-            // 
-            panel25.BackColor = Color.FromArgb(32, 32, 32);
-            panel25.Controls.Add(astraversion);
-            panel25.Controls.Add(label33);
-            panel25.Controls.Add(spectral);
-            panel25.Location = new Point(0, 111);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(470, 23);
-            panel25.TabIndex = 13;
-            // 
-            // astraversion
-            // 
-            astraversion.AutoSize = true;
-            astraversion.BackColor = Color.Transparent;
-            astraversion.ForeColor = Color.White;
-            astraversion.Location = new Point(-99, -99);
-            astraversion.Name = "astraversion";
-            astraversion.Size = new Size(45, 15);
-            astraversion.TabIndex = 11;
-            astraversion.Text = "version";
-            // 
-            // label33
-            // 
-            label33.AutoSize = true;
-            label33.BackColor = Color.Transparent;
-            label33.ForeColor = Color.White;
-            label33.Location = new Point(281, 4);
-            label33.Name = "label33";
-            label33.Size = new Size(115, 15);
-            label33.TabIndex = 8;
-            label33.Text = "Cha554 and Cheemz";
-            // 
-            // spectral
-            // 
-            spectral.AutoSize = true;
-            spectral.ForeColor = Color.White;
-            spectral.Location = new Point(3, 3);
-            spectral.Name = "spectral";
-            spectral.Size = new Size(102, 19);
-            spectral.TabIndex = 9;
-            spectral.Text = "Spectral Menu";
-            spectral.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -980,83 +920,6 @@
             ue.TabIndex = 9;
             ue.Text = "Unity Explorer Fix V3";
             ue.UseVisualStyleBackColor = true;
-            // 
-            // panel19
-            // 
-            panel19.BackColor = Color.FromArgb(32, 32, 32);
-            panel19.Controls.Add(castingv);
-            panel19.Controls.Add(panel20);
-            panel19.Controls.Add(label27);
-            panel19.Controls.Add(casting);
-            panel19.Location = new Point(0, 532);
-            panel19.Name = "panel19";
-            panel19.Size = new Size(470, 23);
-            panel19.TabIndex = 19;
-            // 
-            // castingv
-            // 
-            castingv.AutoSize = true;
-            castingv.BackColor = Color.Transparent;
-            castingv.ForeColor = Color.White;
-            castingv.Location = new Point(397, 4);
-            castingv.Name = "castingv";
-            castingv.Size = new Size(45, 15);
-            castingv.TabIndex = 21;
-            castingv.Text = "version";
-            // 
-            // panel20
-            // 
-            panel20.BackColor = Color.FromArgb(32, 32, 32);
-            panel20.Controls.Add(label26);
-            panel20.Controls.Add(checkBox5);
-            panel20.Location = new Point(3, 22);
-            panel20.Name = "panel20";
-            panel20.Size = new Size(480, 23);
-            panel20.TabIndex = 15;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.BackColor = Color.Transparent;
-            label26.ForeColor = Color.White;
-            label26.Location = new Point(281, 4);
-            label26.Name = "label26";
-            label26.Size = new Size(128, 15);
-            label26.TabIndex = 8;
-            label26.Text = "ShibaGT (Original Kyle)";
-            // 
-            // checkBox5
-            // 
-            checkBox5.AutoSize = true;
-            checkBox5.ForeColor = Color.White;
-            checkBox5.Location = new Point(3, 3);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(127, 19);
-            checkBox5.TabIndex = 9;
-            checkBox5.Text = "WalkSim-NonUtilla";
-            checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.BackColor = Color.Transparent;
-            label27.ForeColor = Color.White;
-            label27.Location = new Point(281, 4);
-            label27.Name = "label27";
-            label27.Size = new Size(109, 15);
-            label27.TabIndex = 8;
-            label27.Text = "HanSolo1000falcon";
-            // 
-            // casting
-            // 
-            casting.AutoSize = true;
-            casting.ForeColor = Color.White;
-            casting.Location = new Point(3, 3);
-            casting.Name = "casting";
-            casting.Size = new Size(147, 19);
-            casting.TabIndex = 9;
-            casting.Text = "Casting Should Be Free";
-            casting.UseVisualStyleBackColor = true;
             // 
             // panel15
             // 
@@ -1439,9 +1302,9 @@
             label9.ForeColor = Color.White;
             label9.Location = new Point(281, 4);
             label9.Name = "label9";
-            label9.Size = new Size(27, 15);
+            label9.Size = new Size(73, 15);
             label9.TabIndex = 8;
-            label9.Text = "iiDk";
+            label9.Text = "kingofnetflix";
             // 
             // iidk
             // 
@@ -1449,9 +1312,9 @@
             iidk.ForeColor = Color.White;
             iidk.Location = new Point(3, 3);
             iidk.Name = "iidk";
-            iidk.Size = new Size(111, 19);
+            iidk.Size = new Size(68, 19);
             iidk.TabIndex = 9;
-            iidk.Text = "ii's Stupid Menu";
+            iidk.Text = "Seralyth";
             iidk.UseVisualStyleBackColor = true;
             // 
             // label8
@@ -1764,8 +1627,6 @@
             panel27.PerformLayout();
             panel26.ResumeLayout(false);
             panel26.PerformLayout();
-            panel25.ResumeLayout(false);
-            panel25.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel24.ResumeLayout(false);
@@ -1784,10 +1645,6 @@
             panel17.PerformLayout();
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
-            panel19.ResumeLayout(false);
-            panel19.PerformLayout();
-            panel20.ResumeLayout(false);
-            panel20.PerformLayout();
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
             panel16.ResumeLayout(false);
@@ -1890,12 +1747,6 @@
         private Label librev;
         private Label walksimv;
         private Button changelocation;
-        private Panel panel19;
-        private Panel panel20;
-        private Label label26;
-        private CheckBox checkBox5;
-        private Label label27;
-        private CheckBox casting;
         private Panel panel21;
         private Label label29;
         private CheckBox bans;
@@ -1914,11 +1765,6 @@
         private CheckBox checkBox6;
         private Label label32;
         private CheckBox draw;
-        private Panel panel25;
-        private Label astraversion;
-        private Label label33;
-        private CheckBox spectral;
-        private Label castingv;
         private Label mediav;
         private Panel panel26;
         private Label zlothyv;
