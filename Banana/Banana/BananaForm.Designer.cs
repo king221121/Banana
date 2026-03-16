@@ -1357,9 +1357,9 @@
             label7.ForeColor = Color.White;
             label7.Location = new Point(281, 4);
             label7.Name = "label7";
-            label7.Size = new Size(27, 15);
+            label7.Size = new Size(73, 15);
             label7.TabIndex = 8;
-            label7.Text = "iiDk";
+            label7.Text = "kingofnetflix";
             // 
             // utilla
             // 

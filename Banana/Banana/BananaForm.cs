@@ -13,7 +13,7 @@ namespace Banana
 
         private string _gtagLocation = DetectGorillaTagPath();
         private string _bananaDir;
-        private readonly string _currentVersion = "1.1.8";
+        private readonly string _currentVersion = "1.1.9";
         string githubVersion;
 
         private static readonly HttpClient s_httpClient = new HttpClient();
@@ -266,7 +266,7 @@ namespace Banana
             {
                 return new (CheckBox, string, string, string, Label)[]
                 {
-                       (utilla, "iiDk-the-actual/Utilla-Public", "Utilla.dll", "utilla", utillav),
+                       (utilla, "Seralyth/Utilla", "Utilla.dll", "utilla", utillav),
                        (iidk, "Seralyth/Seralyth-Menu", "Seralyth-Menu.dll", "seralyth menu sigma", iiv),
                        (libre, "iiDk-the-actual/LibrePad", "LibrePad.dll", "libre", librev),
                        (forpreds, "iiDk-the-actual/ForeverPreds", "ForeverPreds.dll", "forever preds", predv),
